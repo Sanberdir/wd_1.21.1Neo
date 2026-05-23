@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "end": "wd:block/apple_log_top",
+    "side": "wd:block/apple_log"
+  }
+}

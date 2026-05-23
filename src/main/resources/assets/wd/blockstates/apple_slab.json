@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "wd:block/apple_slab"
+    },
+    "type=double": {
+      "model": "wd:block/apple_planks"
+    },
+    "type=top": {
+      "model": "wd:block/apple_slab_top"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "wd:block/coastal_steep"
+  },"render_type": "cutout"
+}

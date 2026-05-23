@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "wd:block/apple_sapling"
+  },"render_type": "cutout"
+}

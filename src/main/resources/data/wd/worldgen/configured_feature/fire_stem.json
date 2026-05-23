@@ -1,0 +1,62 @@
+{
+  "type": "minecraft:random_patch",
+  "config": {
+    "tries": 18,
+    "xz_spread": 4,
+    "y_spread": 0,
+    "feature": {
+      "feature": {
+        "type": "minecraft:block_column",
+        "config": {
+          "direction": "up",
+          "prioritize_tip": false,
+          "allowed_placement": {
+            "type": "minecraft:matching_blocks",
+            "blocks": "minecraft:air"
+          },
+          "layers": [
+            {
+              "height": {
+                "type": "minecraft:biased_to_bottom",
+                "min_inclusive": 3,
+                "max_inclusive": 4
+              },
+              "provider": {
+                "type": "minecraft:simple_state_provider",
+                "state": {
+                  "Name": "wd:fire_stem",
+                  "Properties": {
+                    "age": "0"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "placement": [
+        {
+          "type": "minecraft:block_predicate_filter",
+          "predicate": {
+            "type": "minecraft:all_of",
+            "predicates": [
+              {
+                "type": "minecraft:matching_blocks",
+                "blocks": "minecraft:air"
+              },
+              {
+                "type": "minecraft:would_survive",
+                "state": {
+                  "Name": "wd:fire_stem",
+                  "Properties": {
+                    "age": "0"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

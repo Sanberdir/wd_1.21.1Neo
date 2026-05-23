@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "minecraft:dark_forest",
+  "features": "wd:charming_berries_block",
+  "step": "surface_structures"
+}

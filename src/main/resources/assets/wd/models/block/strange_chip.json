@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "up": "wd:block/strange_chip_top",
+    "down": "wd:block/strange_chip_bottom",
+    "side": "wd:block/strange_chip_side"
+  }
+}
