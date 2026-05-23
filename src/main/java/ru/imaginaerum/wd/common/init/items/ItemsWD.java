@@ -82,5 +82,4 @@ public class ItemsWD {
             () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(4).saturationModifier(0.5f)
                     .build())));
 
-
 }
