@@ -1,0 +1,95 @@
+{
+  "nyamnyam": {
+    "subtitle": "sounds.wd.nyamnyam",
+    "sounds": [
+      {
+        "name": "wd:nyamnyam"
+      },
+      {
+        "name": "wd:nyamnyam1"
+      },
+      {
+        "name": "wd:nyamnyam2"
+      }
+    ]
+  },
+  "flies": {
+    "subtitle": "sounds.wd.flies",
+    "sounds": [
+      {
+        "name": "wd:flies"
+      }
+    ]
+  },
+  "golden_flower": {
+    "subtitle": "sounds.wd.golden_flower",
+    "sounds": [
+      {
+        "name": "wd:golden_flower"
+      },
+      {
+        "name": "wd:golden_flower1"
+      },
+      {
+        "name": "wd:golden_flower2"
+      }
+    ]
+  },
+  "nyamnyam_end": {
+    "subtitle": "sounds.wd.nyamnyam",
+    "sounds": [
+      {
+        "name": "wd:nyamnyam_end"
+      },
+      {
+        "name": "wd:nyamnyam_end1"
+      },
+      {
+        "name": "wd:nyamnyam_end2"
+      }
+    ]
+  },
+  "robin_stick": {
+    "subtitle": "sounds.wd.robin_stick",
+    "sounds": [
+      {
+        "name": "wd:robin_stick"
+      }
+    ]
+  },
+  "rezolv_12_the_long_way_home": {
+    "subtitle": "sounds.wd.rezolv_12_the_long_way_home",
+    "sounds": [
+      {
+       "name": "wd:rezolv_12_the_long_way_home",
+       "stream": true
+      }
+    ]
+  },
+  "open_chests": {
+    "subtitle": "sounds.wd.open_chests",
+    "sounds": [
+      {
+        "name": "wd:open_chests"
+      }
+    ]
+  },
+  "rezolv_15_so_little_but_so_big": {
+    "subtitle": "sounds.wd.rezolv_15_so_little_but_so_big",
+    "sounds": [
+      {
+        "name": "wd:rezolv_15_so_little_but_so_big",
+        "stream": true
+      }
+    ]
+  },
+  "rezolv_4_wandering_minstrel": {
+    "subtitle": "sounds.wd.rezolv_4_wandering_minstrel",
+    "sounds": [
+      {
+        "name": "wd:rezolv_4_wandering_minstrel",
+        "stream": true
+      }
+    ]
+  }
+}

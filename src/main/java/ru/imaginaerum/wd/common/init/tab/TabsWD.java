@@ -39,5 +39,28 @@ public class TabsWD {
                         output.accept(ItemsWD.GLOWING_JAM);
                         output.accept(ItemsWD.SUGAR_REFINED);
                         output.accept(ItemsWD.RAW_WAFFLES);
+                        output.accept(ItemsWD.WAFFLES);
+                        output.accept(ItemsWD.APPLE_WAFFLES);
+                        output.accept(ItemsWD.BERRIES_WAFFLES);
+                        output.accept(ItemsWD.GLOW_BERRIES_WAFFLES);
+                        output.accept(ItemsWD.ICE_WAFFLES);
+                        output.accept(ItemsWD.CHARMING_WAFFLES);
+                        output.accept(ItemsWD.POISON_WAFFLES);
+                        output.accept(ItemsWD.SPATIAL_ORCHID);
+                        output.accept(ItemsWD.THE_PILLAGERS_CHEST);
+                        output.accept(ItemsWD.GOLDEN_CHEST_KING_PILLAGER);
+                        output.accept(ItemsWD.THE_PILLAGERS_KEY);
+                        output.accept(ItemsWD.THE_KING_PILLAGERS_KEY);
+                        output.accept(ItemsWD.A_DROP_OF_LOVE);
+                        output.accept(ItemsWD.SPARKLING_POLLEN);
+                        output.accept(ItemsWD.GRASS_BONE_MEAL);
+                        output.accept(ItemsWD.CRIMSON_BONE_MEAL);
+                        output.accept(ItemsWD.WARPED_BONE_MEAL);
+                        output.accept(ItemsWD.MYCELIUM_BONE_MEAL);
+                        output.accept(ItemsWD.DRAGOLIT_INGOT);
+                        output.accept(ItemsWD.CLEAR_DRAGOLIT_NUGGET);
+                        output.accept(ItemsWD.STRANGE_SCRAP);
+                        output.accept(ItemsWD.HEALING_DEW);
+                        output.accept(ItemsWD.NETHER_GROG);
                     }).build());
 }

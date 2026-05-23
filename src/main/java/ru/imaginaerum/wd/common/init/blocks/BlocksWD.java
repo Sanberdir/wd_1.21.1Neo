@@ -33,6 +33,13 @@ public class BlocksWD {
             () -> new SoulRose(BlockBehaviour.Properties.of().noCollission().randomTicks().instabreak().sound(SoundType.GRASS)));
     public static final DeferredBlock<Block> ROSE_OF_THE_MURDERER = BLOCKS.register("rose_of_the_murderer",
             () -> new RoseMurderer(BlockBehaviour.Properties.of().noCollission().randomTicks().instabreak().sound(SoundType.GRASS)));
+    public static final DeferredBlock<Block> SPATIAL_ORCHID = BLOCKS.register("spatial_orchid",
+            () -> new SpatialOrchid(BlockBehaviour.Properties.of().noCollission()
+                    .randomTicks().instabreak().sound(SoundType.GRASS)));
+    public static final DeferredBlock<Block> WARPED_WART = BLOCKS.register("warped_wart",
+            () -> new WarpedWartBlock(BlockBehaviour.Properties.of().noCollission()
+                    .randomTicks().instabreak().sound(SoundType.GRASS)));
+
     // Варенье
     public static final DeferredBlock<Block> POISON_BERRY_JAM = BLOCKS.register("poison_berry_jam",
             () -> new PoisonJamBlock(BlockBehaviour.Properties.of()
@@ -61,6 +68,34 @@ public class BlocksWD {
     public static final DeferredBlock<Block> GLOWING_JAM = BLOCKS.register("glowing_jam",
             () -> new GlowingJamBlock(BlockBehaviour.Properties.of().lightLevel((i) -> 7)
                     .strength(0.2F).sound(SoundType.GLASS).noOcclusion()));
+
+    // Вафли
+    public static final DeferredBlock<Block> WAFFLES = BLOCKS.register("waffles",
+            () -> new WafflesBlock(BlockBehaviour.Properties.of().randomTicks().sound(SoundType.WOOL),
+                    ItemsWD.WAFFLES));
+    public static final DeferredBlock<Block> BERRIES_WAFFLES = BLOCKS.register("berries_waffles",
+            () -> new BerriesWaffles(BlockBehaviour.Properties.of().randomTicks().sound(SoundType.WOOL),
+                    ItemsWD.BERRIES_WAFFLES, BerriesWaffles.WaffleType.BERRIES));
+    public static final DeferredBlock<Block> APPLE_WAFFLES = BLOCKS.register("apple_waffles",
+            () -> new BerriesWaffles(BlockBehaviour.Properties.of().randomTicks().sound(SoundType.WOOL),
+                    ItemsWD.APPLE_WAFFLES, BerriesWaffles.WaffleType.APPLE));
+    public static final DeferredBlock<Block> ICE_WAFFLES = BLOCKS.register("ice_waffles",
+            () -> new BerriesWaffles(BlockBehaviour.Properties.of().randomTicks().sound(SoundType.WOOL),
+                    ItemsWD.ICE_WAFFLES, BerriesWaffles.WaffleType.ICE));
+    public static final DeferredBlock<Block> POISON_WAFFLES = BLOCKS.register("poison_waffles",
+            () -> new BerriesWaffles(BlockBehaviour.Properties.of().randomTicks().sound(SoundType.WOOL),
+                    ItemsWD.POISON_WAFFLES, BerriesWaffles.WaffleType.POISON));
+    public static final DeferredBlock<Block> CHARMING_WAFFLES = BLOCKS.register("charming_waffles",
+            () -> new BerriesWaffles(BlockBehaviour.Properties.of().randomTicks().sound(SoundType.WOOL),
+                    ItemsWD.CHARMING_WAFFLES, BerriesWaffles.WaffleType.CHARMING));
+    public static final DeferredBlock<Block> GLOW_BERRIES_WAFFLES = BLOCKS.register("glow_berries_waffles",
+            () -> new BerriesWaffles(BlockBehaviour.Properties.of().randomTicks().sound(SoundType.WOOL),
+                    ItemsWD.GLOW_BERRIES_WAFFLES, BerriesWaffles.WaffleType.GLOW_BERRIES));
+    // Сундуки
+    public static final DeferredBlock<Block> THE_PILLAGERS_CHEST = BLOCKS.register("the_pillagers_chest",
+            () -> new PillagerChestBlock(BlockBehaviour.Properties.of().sound(SoundType.WOOD).strength(1F).noOcclusion()));
+    public static final DeferredBlock<Block> GOLDEN_CHEST_KING_PILLAGER = BLOCKS.register("golden_chest_king_pillager",
+            () -> new PillagerChestBlock(BlockBehaviour.Properties.of().sound(SoundType.WOOD).strength(1F).noOcclusion()));
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);

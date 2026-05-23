@@ -4,6 +4,8 @@
   "package": "ru.imaginaerum.wd.common.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "HoglinMixin",
+    "AbstractPiglinMixin",
     "LivingEntityMixin"
   ],
   "client": [

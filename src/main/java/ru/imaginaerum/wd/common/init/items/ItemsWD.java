@@ -5,13 +5,14 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
+import net.minecraft.world.item.Rarity;
+import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import ru.imaginaerum.wd.WD;
 import ru.imaginaerum.wd.common.init.blocks.BlocksWD;
 import ru.imaginaerum.wd.common.init.effects.EffectsWD;
-import ru.imaginaerum.wd.common.init.items.custom.Jam;
-import ru.imaginaerum.wd.common.init.items.custom.MurdererRose;
+import ru.imaginaerum.wd.common.init.items.custom.*;
 
 public class ItemsWD {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(WD.MOD_ID);
@@ -49,6 +50,8 @@ public class ItemsWD {
             () -> new ItemNameBlockItem(BlocksWD.ROSE_OF_GHOSTY_TEARS.get(), new Item.Properties()));
     public static final DeferredItem<Item> ROSE_OF_THE_MURDERER = ITEMS.register("rose_of_the_murderer",
             () -> new MurdererRose(BlocksWD.ROSE_OF_THE_MURDERER.get(), new Item.Properties()));
+    public static final DeferredItem<Item> WARPED_WART = ITEMS.register("warped_wart",
+            () -> new ItemNameBlockItem(BlocksWD.WARPED_WART.get(), new Item.Properties()));
 
     public static final DeferredItem<Item> POISON_BERRY_JAM = ITEMS.register("poison_berry_jam",
             () -> new Jam(BlocksWD.POISON_BERRY_JAM.get(), new Item.Properties().food(new FoodProperties.Builder()
@@ -104,7 +107,65 @@ public class ItemsWD {
     public static final DeferredItem<Item> SUGAR_REFINED = ITEMS.register("sugar_refined",
             () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(4).saturationModifier(0.5f)
                             .build())));
+
     public static final DeferredItem<Item> RAW_WAFFLES = ITEMS.register("raw_waffles",
             () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(0.6f).alwaysEdible()
                     .build())));
+    public static final DeferredItem<Item> WAFFLES = ITEMS.register("waffles",
+            () -> new ItemNameBlockItem(BlocksWD.WAFFLES.get(), new Item.Properties()
+                    .food(new FoodProperties.Builder().nutrition(6).saturationModifier(1).alwaysEdible()
+                            .build())));
+    public static final DeferredItem<Item> BERRIES_WAFFLES = ITEMS.register("berries_waffles",
+            () -> new ItemNameBlockItem(BlocksWD.BERRIES_WAFFLES.get(), new Item.Properties()
+                    .food(new FoodProperties.Builder().nutrition(6).saturationModifier(1).alwaysEdible().build())));
+    public static final DeferredItem<Item> APPLE_WAFFLES = ITEMS.register("apple_waffles",
+            () -> new ItemNameBlockItem(BlocksWD.APPLE_WAFFLES.get(), new Item.Properties()
+                    .food(new FoodProperties.Builder().nutrition(6).saturationModifier(1).alwaysEdible().build())));
+    public static final DeferredItem<Item> ICE_WAFFLES = ITEMS.register("ice_waffles",
+            () -> new ItemNameBlockItem(BlocksWD.ICE_WAFFLES.get(), new Item.Properties()
+                    .food(new FoodProperties.Builder().nutrition(6).saturationModifier(1).alwaysEdible().build())));
+    public static final DeferredItem<Item> POISON_WAFFLES = ITEMS.register("poison_waffles",
+            () -> new ItemNameBlockItem(BlocksWD.POISON_WAFFLES.get(), new Item.Properties()
+                    .food(new FoodProperties.Builder().nutrition(6).saturationModifier(1).alwaysEdible().build())));
+    public static final DeferredItem<Item> CHARMING_WAFFLES = ITEMS.register("charming_waffles",
+            () -> new ItemNameBlockItem(BlocksWD.CHARMING_WAFFLES.get(), new Item.Properties()
+                    .food(new FoodProperties.Builder().nutrition(6).saturationModifier(1).alwaysEdible().build())));
+    public static final DeferredItem<Item> GLOW_BERRIES_WAFFLES = ITEMS.register("glow_berries_waffles",
+            () -> new ItemNameBlockItem(BlocksWD.GLOW_BERRIES_WAFFLES.get(), new Item.Properties()
+                    .food(new FoodProperties.Builder().nutrition(6).saturationModifier(1).alwaysEdible().build())));
+    public static final DeferredItem<Item> SPATIAL_ORCHID = ITEMS.register("spatial_orchid",
+            () -> new ItemNameBlockItem(BlocksWD.SPATIAL_ORCHID.get(), new Item.Properties()));
+    public static final DeferredItem<Item> THE_PILLAGERS_CHEST = ITEMS.register("the_pillagers_chest",
+            () -> new ItemNameBlockItem(BlocksWD.THE_PILLAGERS_CHEST.get(), new Item.Properties()));
+    public static final DeferredItem<Item> GOLDEN_CHEST_KING_PILLAGER = ITEMS.register("golden_chest_king_pillager",
+            () -> new ItemNameBlockItem(BlocksWD.GOLDEN_CHEST_KING_PILLAGER.get(), new Item.Properties()));
+    public static final DeferredItem<Item> THE_PILLAGERS_KEY = ITEMS.register("the_pillagers_key",
+            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> THE_KING_PILLAGERS_KEY = ITEMS.register("the_king_pillagers_key",
+            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> A_DROP_OF_LOVE = ITEMS.register("a_drop_of_love",
+            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> SPARKLING_POLLEN = ITEMS.register("sparkling_pollen",
+            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> CRIMSON_BONE_MEAL = ITEMS.register("crimson_bone_meal",
+            () -> new NetherrackBonemeal(new Item.Properties(), Blocks.CRIMSON_NYLIUM));
+    public static final DeferredItem<Item> WARPED_BONE_MEAL = ITEMS.register("warped_bone_meal",
+            () -> new NetherrackBonemeal(new Item.Properties(), Blocks.WARPED_NYLIUM));
+    public static final DeferredItem<Item> GRASS_BONE_MEAL = ITEMS.register("grass_bone_meal",
+            () -> new GrassBoneMeal(new Item.Properties()));
+    public static final DeferredItem<Item> MYCELIUM_BONE_MEAL = ITEMS.register("mycelium_bone_meal",
+            () -> new DirtBoneMeal(new Item.Properties(), Blocks.MYCELIUM));
+
+    public static final DeferredItem<Item> DRAGOLIT_INGOT = ITEMS.register("dragolit_ingot",
+            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> CLEAR_DRAGOLIT_NUGGET = ITEMS.register("clear_dragolit_nugget",
+            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> STRANGE_SCRAP = ITEMS.register("strange_scrap",
+            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> HEALING_DEW = ITEMS.register("healing_dew",
+            () -> new HealingDew(new Item.Properties()));
+    public static final DeferredItem<Item> NETHER_GROG = ITEMS.register("nether_grog",
+            () -> new NetherGrog(new Item.Properties().food(new FoodProperties.Builder().nutrition(5).alwaysEdible().saturationModifier(1)
+                    .effect(new MobEffectInstance(MobEffects.DIG_SPEED, 6000, 2), 1F)
+                    .build()).rarity(Rarity.RARE)));
 }

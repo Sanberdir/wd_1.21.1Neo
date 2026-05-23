@@ -35,6 +35,7 @@ import ru.imaginaerum.wd.common.init.patricles.ModParticles;
 import ru.imaginaerum.wd.common.init.patricles.custom.StombleRoseParticles;
 import ru.imaginaerum.wd.common.init.recipes.ProperBrewingRecipe;
 import ru.imaginaerum.wd.common.init.tab.TabsWD;
+import ru.imaginaerum.wd.common.sounds.CustomSoundEvents;
 
 import java.util.AbstractMap;
 import java.util.ArrayList;
@@ -58,6 +59,7 @@ public class WD {
         BlocksWD.BLOCKS.register(modEventBus);
         EffectsWD.MOB_EFFECTS.register(modEventBus);
         ItemsWD.ITEMS.register(modEventBus);
+        CustomSoundEvents.SOUND_EVENTS.register(modEventBus);
         TabsWD.TABS_WD.register(modEventBus);
         ModParticles.PARTICLE_TYPES.register(modEventBus);
         ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
