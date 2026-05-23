@@ -39,6 +39,8 @@ public class BlocksWD {
     public static final DeferredBlock<Block> WARPED_WART = BLOCKS.register("warped_wart",
             () -> new WarpedWartBlock(BlockBehaviour.Properties.of().noCollission()
                     .randomTicks().instabreak().sound(SoundType.GRASS)));
+    public static final DeferredBlock<Block> MEADOW_GOLDEN_FLOWER = BLOCKS.register("meadow_golden_flower",
+            () -> new GoldenRose(BlockBehaviour.Properties.of().noCollission().randomTicks().instabreak().sound(SoundType.GRASS)));
 
     // Варенье
     public static final DeferredBlock<Block> POISON_BERRY_JAM = BLOCKS.register("poison_berry_jam",
@@ -91,11 +93,56 @@ public class BlocksWD {
     public static final DeferredBlock<Block> GLOW_BERRIES_WAFFLES = BLOCKS.register("glow_berries_waffles",
             () -> new BerriesWaffles(BlockBehaviour.Properties.of().randomTicks().sound(SoundType.WOOL),
                     ItemsWD.GLOW_BERRIES_WAFFLES, BerriesWaffles.WaffleType.GLOW_BERRIES));
+
+    // Особая еда
+    public static final DeferredBlock<Block> WIZARD_PIE = BLOCKS.register("wizard_pie",
+            () -> new WizardPie(BlockBehaviour.Properties.of().strength(0.5F).sound(SoundType.WOOL).randomTicks()));
+    public static final DeferredBlock<Block> ROTTEN_PIE = BLOCKS.register("rotten_pie",
+            () -> new RottenPie(BlockBehaviour.Properties.of().randomTicks().strength(0.5F).sound(SoundType.WOOL)));
+    // Торты со свечами
+    public static final DeferredBlock<Block> CANDLE_WIZARD_PIE = BLOCKS.register("candle_wizard_pie",
+            () -> new CandleWizardPie(Blocks.CANDLE,BlockBehaviour.Properties.ofFullCopy(Blocks.CANDLE_CAKE)));
+    public static final DeferredBlock<Block> WHITE_CANDLE_WIZARD_PIE = BLOCKS.register("white_candle_wizard_pie",
+            () -> new CandleWizardPie(Blocks.WHITE_CANDLE,BlockBehaviour.Properties.ofFullCopy(Blocks.CANDLE_CAKE)));
+    public static final DeferredBlock<Block> BLACK_CANDLE_WIZARD_PIE = BLOCKS.register("black_candle_wizard_pie",
+            () -> new CandleWizardPie(Blocks.BLACK_CANDLE,BlockBehaviour.Properties.ofFullCopy(Blocks.CANDLE_CAKE)));
+    public static final DeferredBlock<Block> YELLOW_CANDLE_WIZARD_PIE = BLOCKS.register("yellow_candle_wizard_pie",
+            () -> new CandleWizardPie(Blocks.YELLOW_CANDLE,BlockBehaviour.Properties.ofFullCopy(Blocks.CANDLE_CAKE)));
+    public static final DeferredBlock<Block> RED_CANDLE_WIZARD_PIE = BLOCKS.register("red_candle_wizard_pie",
+            () -> new CandleWizardPie(Blocks.RED_CANDLE,BlockBehaviour.Properties.ofFullCopy(Blocks.CANDLE_CAKE)));
+    public static final DeferredBlock<Block> ORANGE_CANDLE_WIZARD_PIE = BLOCKS.register("orange_candle_wizard_pie",
+            () -> new CandleWizardPie(Blocks.ORANGE_CANDLE,BlockBehaviour.Properties.ofFullCopy(Blocks.CANDLE_CAKE)));
+    public static final DeferredBlock<Block> PINK_CANDLE_WIZARD_PIE = BLOCKS.register("pink_candle_wizard_pie",
+            () -> new CandleWizardPie(Blocks.PINK_CANDLE,BlockBehaviour.Properties.ofFullCopy(Blocks.CANDLE_CAKE)));
+    public static final DeferredBlock<Block> PURPLE_CANDLE_WIZARD_PIE = BLOCKS.register("purple_candle_wizard_pie",
+            () -> new CandleWizardPie(Blocks.PURPLE_CANDLE,BlockBehaviour.Properties.ofFullCopy(Blocks.CANDLE_CAKE)));
+    public static final DeferredBlock<Block> MAGENTA_CANDLE_WIZARD_PIE = BLOCKS.register("magenta_candle_wizard_pie",
+            () -> new CandleWizardPie(Blocks.MAGENTA_CANDLE,BlockBehaviour.Properties.ofFullCopy(Blocks.CANDLE_CAKE)));
+    public static final DeferredBlock<Block> GRAY_CANDLE_WIZARD_PIE = BLOCKS.register("gray_candle_wizard_pie",
+            () -> new CandleWizardPie(Blocks.GRAY_CANDLE,BlockBehaviour.Properties.ofFullCopy(Blocks.CANDLE_CAKE)));
+    public static final DeferredBlock<Block> CYAN_CANDLE_WIZARD_PIE = BLOCKS.register("cyan_candle_wizard_pie",
+            () -> new CandleWizardPie(Blocks.CYAN_CANDLE,BlockBehaviour.Properties.ofFullCopy(Blocks.CANDLE_CAKE)));
+    public static final DeferredBlock<Block> BLUE_CANDLE_WIZARD_PIE = BLOCKS.register("blue_candle_wizard_pie",
+            () -> new CandleWizardPie(Blocks.BLUE_CANDLE,BlockBehaviour.Properties.ofFullCopy(Blocks.CANDLE_CAKE)));
+    public static final DeferredBlock<Block> BROWN_CANDLE_WIZARD_PIE = BLOCKS.register("brown_candle_wizard_pie",
+            () -> new CandleWizardPie(Blocks.BROWN_CANDLE,BlockBehaviour.Properties.ofFullCopy(Blocks.CANDLE_CAKE)));
+    public static final DeferredBlock<Block> GREEN_CANDLE_WIZARD_PIE = BLOCKS.register("green_candle_wizard_pie",
+            () -> new CandleWizardPie(Blocks.GREEN_CANDLE,BlockBehaviour.Properties.ofFullCopy(Blocks.CANDLE_CAKE)));
+    public static final DeferredBlock<Block> LIME_CANDLE_WIZARD_PIE = BLOCKS.register("lime_candle_wizard_pie",
+            () -> new CandleWizardPie(Blocks.LIME_CANDLE,BlockBehaviour.Properties.ofFullCopy(Blocks.CANDLE_CAKE)));
+    public static final DeferredBlock<Block> LIGHT_BLUE_CANDLE_WIZARD_PIE = BLOCKS.register("light_blue_candle_wizard_pie",
+            () -> new CandleWizardPie(Blocks.LIGHT_BLUE_CANDLE,BlockBehaviour.Properties.ofFullCopy(Blocks.CANDLE_CAKE)));
+    public static final DeferredBlock<Block> LIGHT_GRAY_CANDLE_WIZARD_PIE = BLOCKS.register("light_gray_candle_wizard_pie",
+            () -> new CandleWizardPie(Blocks.LIGHT_GRAY_CANDLE,BlockBehaviour.Properties.ofFullCopy(Blocks.CANDLE_CAKE)));
+
     // Сундуки
     public static final DeferredBlock<Block> THE_PILLAGERS_CHEST = BLOCKS.register("the_pillagers_chest",
             () -> new PillagerChestBlock(BlockBehaviour.Properties.of().sound(SoundType.WOOD).strength(1F).noOcclusion()));
     public static final DeferredBlock<Block> GOLDEN_CHEST_KING_PILLAGER = BLOCKS.register("golden_chest_king_pillager",
             () -> new PillagerChestBlock(BlockBehaviour.Properties.of().sound(SoundType.WOOD).strength(1F).noOcclusion()));
+
+    public static final DeferredBlock<Block> SUGAR_SACK = BLOCKS.register("sugar_sack",
+            () -> new FacingBlock(BlockBehaviour.Properties.of().sound(SoundType.WOOL).noOcclusion()));
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);

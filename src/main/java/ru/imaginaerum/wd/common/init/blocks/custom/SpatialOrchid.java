@@ -21,35 +21,35 @@ import java.util.List;
 
 
 public class SpatialOrchid extends Block {
+
+    private static final int TELEPORT_RADIUS = 300;
+    private static final String TAG_KEY = "wd_spatial_orchid_pending";
+
     public SpatialOrchid(Properties properties) {
         super(properties);
     }
-    private static final int TELEPORT_RADIUS = 300;
 
     @Override
     public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
-        if (!level.isClientSide && level instanceof ServerLevel serverLevel) {
-            // Запланировать тик через 10 тиков, если он еще не запланирован
-            if (!level.getBlockTicks().hasScheduledTick(pos, this)) {
-                level.scheduleTick(pos, this, 6);
-            }
+        if (!level.isClientSide) {
+            entity.getPersistentData().putBoolean(TAG_KEY, true);
+            level.scheduleTick(pos, this, 1);
         }
     }
 
     @Override
     public void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
-        // Увеличиваем область проверки до 1 блока во все стороны, чтобы захватить игрока, который мог немного сместиться
-        AABB searchArea = new AABB(pos).inflate(1.0);
+        // Ищем тегированных в широком радиусе — они могли убежать
+        AABB searchArea = new AABB(pos).inflate(16.0);
         List<Entity> entities = level.getEntitiesOfClass(Entity.class, searchArea);
 
-        if (!entities.isEmpty()) {
-            // Телепортируем всех сущностей в области, а не только первую
-            for (Entity entity : entities) {
+        for (Entity entity : entities) {
+            if (entity.getPersistentData().getBoolean(TAG_KEY)) {
+                entity.getPersistentData().remove(TAG_KEY);
                 teleportEntityRandomly(level, entity);
             }
         }
 
-        // Также проверить, может ли блок выжить (существующая логика)
         if (!state.canSurvive(level, pos)) {
             level.destroyBlock(pos, true);
         }
@@ -57,49 +57,59 @@ public class SpatialOrchid extends Block {
 
     private void teleportEntityRandomly(ServerLevel level, Entity entity) {
         RandomSource random = level.getRandom();
-        // Попробуем найти подходящее место для телепортации
         int x = entity.blockPosition().getX() + random.nextInt(TELEPORT_RADIUS * 2) - TELEPORT_RADIUS;
         int z = entity.blockPosition().getZ() + random.nextInt(TELEPORT_RADIUS * 2) - TELEPORT_RADIUS;
-        int y = level.getHeight() - 1; // Начинаем сверху (наибольшая высота в этом чанке)
-        BlockPos candidatePos = new BlockPos(x, y, z);
+        BlockPos candidatePos = new BlockPos(x, level.getHeight() - 1, z);
 
-        // Проверяем каждую позицию сверху вниз
         while (candidatePos.getY() > level.getMinBuildHeight()) {
             if (isValidTeleportLocation(level, candidatePos)) {
-                entity.teleportTo(candidatePos.getX() + 0.5, candidatePos.getY() + 1, candidatePos.getZ() + 0.5);
-                return; // Перемещаем игрока и выходим из цикла
+                entity.teleportTo(
+                        candidatePos.getX() + 0.5,
+                        candidatePos.getY() + 1,
+                        candidatePos.getZ() + 0.5
+                );
+                return;
             }
-            candidatePos = candidatePos.below(); // Переходим ниже, если текущая позиция не подходит
+            candidatePos = candidatePos.below();
         }
     }
 
     private boolean isValidTeleportLocation(Level level, BlockPos pos) {
-        return level.getBlockState(pos).isSolid() && // Подходящая твёрдая поверхность
-                level.getBlockState(pos.above()).isAir() && // Над поверхностью воздух
-                level.getBlockState(pos.above(2)).isAir(); // Достаточно пространства для сущности
+        return level.getBlockState(pos).isSolid() &&
+                level.getBlockState(pos.above()).isAir() &&
+                level.getBlockState(pos.above(2)).isAir();
     }
 
+    @Override
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource source) {
         VoxelShape voxelshape = this.getShape(state, level, pos, CollisionContext.empty());
         Vec3 vec3 = voxelshape.bounds().getCenter();
-        double d0 = (double)pos.getX() + vec3.x;
-        double d1 = (double)pos.getZ() + vec3.z;
-        for(int i = 0; i < 3; ++i) {
+        double d0 = pos.getX() + vec3.x;
+        double d1 = pos.getZ() + vec3.z;
+        for (int i = 0; i < 3; ++i) {
             if (source.nextBoolean()) {
-                level.addParticle(ParticleTypes.PORTAL, d0 + source.nextDouble() / 5.0D, (double)pos.getY() + (0.5D - source.nextDouble()), d1 + source.nextDouble() / 5.0D, 0.0D, 0.0D, 0.0D);
+                level.addParticle(ParticleTypes.PORTAL,
+                        d0 + source.nextDouble() / 5.0,
+                        pos.getY() + (0.5 - source.nextDouble()),
+                        d1 + source.nextDouble() / 5.0,
+                        0.0, 0.0, 0.0);
             }
         }
     }
 
-    public BlockState updateShape(BlockState currentBlockState, Direction direction, BlockState neighborBlockState, LevelAccessor world, BlockPos currentPos, BlockPos neighborPos) {
+    @Override
+    public BlockState updateShape(BlockState currentBlockState, Direction direction,
+                                  BlockState neighborBlockState, LevelAccessor world,
+                                  BlockPos currentPos, BlockPos neighborPos) {
         if (!currentBlockState.canSurvive(world, currentPos)) {
             world.scheduleTick(currentPos, this, 1);
         }
         return super.updateShape(currentBlockState, direction, neighborBlockState, world, currentPos, neighborPos);
     }
 
+    @Override
     public boolean canSurvive(BlockState state, LevelReader levelReader, BlockPos blockPos) {
-        BlockState belowBlockState = levelReader.getBlockState(blockPos.below());
-        return belowBlockState.is(Blocks.END_STONE) || belowBlockState.is(Blocks.END_STONE_BRICKS);
+        BlockState below = levelReader.getBlockState(blockPos.below());
+        return below.is(Blocks.END_STONE) || below.is(Blocks.END_STONE_BRICKS);
     }
 }

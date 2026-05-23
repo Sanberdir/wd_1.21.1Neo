@@ -1,4 +1,4 @@
-package ru.imaginaerum.wd.common.events;
+package ru.imaginaerum.wd.server.events;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;

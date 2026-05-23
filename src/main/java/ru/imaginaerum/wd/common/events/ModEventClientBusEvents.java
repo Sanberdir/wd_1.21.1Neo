@@ -12,6 +12,7 @@ import ru.imaginaerum.wd.WD;
 import ru.imaginaerum.wd.common.init.blocks.custom.entity.ModBlockEntities;
 import ru.imaginaerum.wd.common.init.blocks.custom.entity.renderer.GlowingJamBlockRenderer;
 import ru.imaginaerum.wd.common.init.patricles.ModParticles;
+import ru.imaginaerum.wd.common.init.patricles.custom.FliesParticles;
 import ru.imaginaerum.wd.common.init.patricles.custom.StombleRoseParticles;
 
 @EventBusSubscriber(modid = WD.MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
@@ -22,6 +23,10 @@ public class ModEventClientBusEvents {
         event.registerSpriteSet(
                 ModParticles.STOMBLE_ROSE.get(),
                 StombleRoseParticles.Provider::new
+        );
+        event.registerSpriteSet(
+                ModParticles.FLIES.get(),
+                FliesParticles.Provider::new
         );
     }
     @SubscribeEvent
