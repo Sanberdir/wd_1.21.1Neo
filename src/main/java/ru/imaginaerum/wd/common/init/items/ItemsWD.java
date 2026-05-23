@@ -104,4 +104,7 @@ public class ItemsWD {
     public static final DeferredItem<Item> SUGAR_REFINED = ITEMS.register("sugar_refined",
             () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(4).saturationModifier(0.5f)
                             .build())));
+    public static final DeferredItem<Item> RAW_WAFFLES = ITEMS.register("raw_waffles",
+            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(0.6f).alwaysEdible()
+                    .build())));
 }

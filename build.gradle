@@ -19,6 +19,10 @@ repositories {
         name = "NeoForged"
         url = "https://maven.neoforged.net/releases"
     }
+    maven {
+        name = "Modrinth"
+        url = "https://api.modrinth.com/maven"
+    }
 }
 
 base {
@@ -44,7 +48,7 @@ neoForge {
     runs {
         client {
             client()
-            systemProperty 'geckolib.disable_examples', 'true'
+
             // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
             systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
         }
@@ -106,7 +110,10 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 dependencies {
     implementation "software.bernie.geckolib:geckolib-neoforge-1.21.1:${geckolib_version}"
-
+    compileOnly "maven.modrinth:farmers-delight:GbNuOZ4S"
+    runtimeOnly "maven.modrinth:farmers-delight:GbNuOZ4S"
+    compileOnly "maven.modrinth:jei:YAcQ6elZ"
+    runtimeOnly "maven.modrinth:jei:YAcQ6elZ"
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
