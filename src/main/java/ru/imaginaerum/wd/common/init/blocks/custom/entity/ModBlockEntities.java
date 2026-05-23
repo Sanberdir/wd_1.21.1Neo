@@ -19,4 +19,11 @@ public class ModBlockEntities {
                             BlocksWD.ROSE_OF_THE_MURDERER.get()
                     ).build(null)
             );
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<GlowingJamBlockEntity>> GLOWING_JAM =
+            BLOCK_ENTITIES.register("glowing_jam", () ->
+                    BlockEntityType.Builder.of(
+                            GlowingJamBlockEntity::new,
+                            BlocksWD.GLOWING_JAM.get()
+                    ).build(null)
+            );
 }

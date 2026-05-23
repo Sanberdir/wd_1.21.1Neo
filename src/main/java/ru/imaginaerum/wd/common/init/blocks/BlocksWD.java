@@ -49,6 +49,18 @@ public class BlocksWD {
     public static final DeferredBlock<Block> APPLE_JAM = BLOCKS.register("apple_jam",
             () -> new AppleJamBlock(BlockBehaviour.Properties.of()
                     .strength(0.2F).sound(SoundType.GLASS).noOcclusion(), ItemsWD.APPLE_JAM));
+    public static final DeferredBlock<Block> JAM_TONIC = BLOCKS.register("jam_tonic",
+            () -> new TonicJamBlock(BlockBehaviour.Properties.of()
+                    .strength(0.2F).sound(SoundType.GLASS).noOcclusion(), ItemsWD.JAM_TONIC));
+    public static final DeferredBlock<Block> JAM_INVISIBILITY = BLOCKS.register("jam_invisibility",
+            () -> new InvisibilityJamBlock(BlockBehaviour.Properties.of()
+                    .strength(0.2F).sound(SoundType.GLASS).noOcclusion(), ItemsWD.JAM_INVISIBILITY));
+    public static final DeferredBlock<Block> LEVITAN_JAM = BLOCKS.register("levitan_jam",
+            () -> new LevitanJamBlock(BlockBehaviour.Properties.of()
+                    .strength(0.2F).sound(SoundType.GLASS).noOcclusion(), ItemsWD.LEVITAN_JAM));
+    public static final DeferredBlock<Block> GLOWING_JAM = BLOCKS.register("glowing_jam",
+            () -> new GlowingJamBlock(BlockBehaviour.Properties.of().lightLevel((i) -> 7)
+                    .strength(0.2F).sound(SoundType.GLASS).noOcclusion()));
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);

@@ -33,6 +33,9 @@ public class TabsWD {
                         output.accept(ItemsWD.APPLE_JAM);
                         output.accept(ItemsWD.SWEET_JAM);
                         output.accept(ItemsWD.FREEZE_JAM);
+                        output.accept(ItemsWD.JAM_TONIC);
+                        output.accept(ItemsWD.JAM_INVISIBILITY);
+                        output.accept(ItemsWD.LEVITAN_JAM);
                         output.accept(ItemsWD.SUGAR_REFINED);
                     }).build());
 }
