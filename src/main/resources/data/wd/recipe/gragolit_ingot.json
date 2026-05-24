@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "ingots",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "wd:clear_dragolit_nugget"
+    }
+  },
+  "result": {
+    "id": "wd:dragolit_ingot",
+    "count": 1
+  }
+}

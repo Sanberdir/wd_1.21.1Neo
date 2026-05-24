@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smoking",
+  "cookingtime": 100,
+  "experience": 0.35,
+  "ingredient": {
+    "item": "wd:frog_body"
+  },
+  "result": {
+    "id": "wd:cooked_frog"
+  }
+}

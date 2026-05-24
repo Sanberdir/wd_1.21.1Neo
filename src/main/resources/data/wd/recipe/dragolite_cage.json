@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "a_block_of_sparkling_pollen",
+  "pattern": [
+    "PGP",
+    "GLG",
+    "PGP"
+  ],
+  "key": {
+    "G": {
+      "item": "wd:dragolit_grid"
+    },
+    "P": {
+      "item": "wd:sparkling_pollen"
+    },
+    "L": {
+      "item": "minecraft:ghast_tear"
+    }
+  },
+  "result": {
+    "id": "wd:dragolite_cage",
+    "count": 1
+  }
+}

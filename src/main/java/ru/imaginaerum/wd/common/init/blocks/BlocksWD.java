@@ -165,9 +165,9 @@ public class BlocksWD {
     public static final DeferredBlock<Block> POT = BLOCKS.register("pot",
             () -> new Pot(BlockBehaviour.Properties.of().sound(SoundType.DECORATED_POT).strength(0.7F).noOcclusion()));
     public static final DeferredBlock<Block> POT_FROM_MEAT_GOAT = BLOCKS.register("pot_from_meat_goat",
-            () -> new PotWithKebab(BlockBehaviour.Properties.of().sound(SoundType.DECORATED_POT).strength(0.7F).noOcclusion()));
+            () -> new PotWithKebab(BlockBehaviour.Properties.of().sound(SoundType.DECORATED_POT).strength(0.7F).randomTicks().noOcclusion()));
     public static final DeferredBlock<Block> POT_FROM_MEAT_CAMEL = BLOCKS.register("pot_from_meat_camel",
-            () -> new PotWithKebab(BlockBehaviour.Properties.of().sound(SoundType.DECORATED_POT).strength(0.7F).noOcclusion()));
+            () -> new PotWithKebab(BlockBehaviour.Properties.of().sound(SoundType.DECORATED_POT).strength(0.7F).randomTicks().noOcclusion()));
     public static final DeferredBlock<Block> MARINADED_POT_FROM_MEAT_GOAT = BLOCKS.register("marinaded_pot_from_meat_goat",
             () -> new MarinadedPot(BlockBehaviour.Properties.of().sound(SoundType.DECORATED_POT).strength(0.7F).noOcclusion()));
     public static final DeferredBlock<Block> MARINADED_POT_FROM_MEAT_CAMEL = BLOCKS.register("marinaded_pot_from_meat_camel",

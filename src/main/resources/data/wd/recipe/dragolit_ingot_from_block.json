@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "wd:dragolit_block"
+    }
+  },
+  "result": {
+    "id": "wd:dragolit_ingot",
+    "count": 9
+  }
+}

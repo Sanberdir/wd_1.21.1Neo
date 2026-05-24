@@ -23,12 +23,14 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 import ru.imaginaerum.wd.common.init.blocks.BlocksWD;
 
+import java.util.Collections;
 import java.util.List;
 
 public class PotWithKebab extends HorizontalDirectionalBlock {
@@ -194,14 +196,10 @@ public class PotWithKebab extends HorizontalDirectionalBlock {
             level.addParticle(
                     ColorParticleOption.create(
                             ParticleTypes.ENTITY_EFFECT,
-                            0xD1D9A5
+                            0xFFD1D9A5   // FF = полная непрозрачность
                     ),
-                    x,
-                    y,
-                    z,
-                    0.0,
-                    0.0,
-                    0.0
+                    x, y, z,
+                    0.0, 0.0, 0.0
             );
         }
     }
@@ -246,5 +244,12 @@ public class PotWithKebab extends HorizontalDirectionalBlock {
                 pos,
                 neighborPos
         );
+    }
+    @Override
+    public List<ItemStack> getDrops(BlockState state, LootParams.Builder builder) {
+        List<ItemStack> dropsOriginal = super.getDrops(state, builder);
+        if (!dropsOriginal.isEmpty())
+            return dropsOriginal;
+        return Collections.singletonList(new ItemStack(this, 1));
     }
 }
