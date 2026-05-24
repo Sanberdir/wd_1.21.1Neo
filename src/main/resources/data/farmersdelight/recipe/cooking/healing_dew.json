@@ -1,0 +1,30 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 400,
+  "experience": 5.3,
+  "container": {
+    "count": 1,
+    "id": "minecraft:glass_bottle"
+  },
+  "ingredients": [
+    {
+      "item": "wd:silveran"
+    },
+    {
+      "item": "wd:a_drop_of_love"
+    },
+    {
+      "item": "wd:meadow_golden_flower"
+    },
+    {
+      "item": "minecraft:golden_apple"
+    },
+    {
+      "item": "wd:sugar_refined"
+    }
+  ],
+  "result": {
+    "id": "wd:healing_dew",
+    "count": 3
+  }
+}

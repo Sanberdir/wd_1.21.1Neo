@@ -1,0 +1,27 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 600,
+  "experience": 0.50,
+  "ingredients": [
+    {
+      "item": "minecraft:porkchop"
+    },
+    {
+      "item": "farmersdelight:minced_beef"
+    },
+    {
+      "item": "farmersdelight:minced_beef"
+    },
+    {
+      "item": "wd:handful_nether"
+    },
+    {
+      "item": "wd:bright_pepper"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "count": 1,
+    "id": "wd:shpikachki"
+  }
+}

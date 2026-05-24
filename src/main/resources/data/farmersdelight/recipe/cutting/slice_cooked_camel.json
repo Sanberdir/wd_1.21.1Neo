@@ -1,0 +1,25 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "wd:cooked_camel_meat"
+    }
+  ],
+  "result": [
+    {
+      "item": {
+        "count": 2,
+        "id": "wd:cooked_slicing_camel_meat"
+      }
+    }
+  ],
+  "tool": [
+    {
+      "type": "farmersdelight:item_ability",
+      "action": "knife_dig"
+    },
+    {
+      "tag": "c:tools/knife"
+    }
+  ]
+}

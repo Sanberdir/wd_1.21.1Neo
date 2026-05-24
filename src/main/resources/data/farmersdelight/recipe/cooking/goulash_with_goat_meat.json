@@ -1,0 +1,21 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 600,
+  "experience": 3,
+  "container": {
+    "count": 1,
+    "id": "minecraft:bowl"
+  },
+  "ingredients": [
+    {
+      "item": "farmersdelight:tomato_sauce"
+    },
+    {
+      "item": "wd:raw_slicing_goats_meat"
+    }
+  ],
+  "result": {
+    "id": "wd:goulash_with_goat_meat",
+    "count": 1
+  }
+}

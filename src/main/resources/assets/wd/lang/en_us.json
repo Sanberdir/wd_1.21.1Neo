@@ -64,6 +64,12 @@
   "block.wd.pot_from_meat_goat": "Pot With Meat",
   "block.wd.pot_from_meat_camel": "Pot With Meat",
 
+
+  "item.wd.magic_soil": "Magic Soil",
+  "item.wd.magic_soil_farmland": "Magic Soil Farmland",
+  "item.wd.magic_soil_grass": "Magic Soil Grass",
+  "item.wd.strange_chip": "Endstone with inclusions",
+  "item.wd.a_block_of_sparkling_pollen": "Block sparkling pollen",
   "item.wd.sugar_sack": "Bag of sugar",
   "item.wd.a_drop_of_love": "§dDrop Of Love",
   "item.wd.apple_boat": "Apple Boat",
@@ -147,7 +153,11 @@
   "item.wd.glowing_jam": "Glowing Berries Jam",
   "item.wd.goat_meat_kebab": "Goat Meat Kebab",
   "item.wd.camel_meat_kebab": "Camel Meat Kebab",
-
+  "item.wd.marinaded_pot_from_meat_goat": "Marinaded Pot With Meat",
+  "item.wd.marinaded_pot_from_meat_camel": "Marinaded Pot With Meat",
+  "item.wd.pot": "Pot",
+  "item.wd.pot_from_meat_goat": "Pot With Meat",
+  "item.wd.pot_from_meat_camel": "Pot With Meat",
   "item.wd.iron_watering_can": "Iron Watering Can",
 
   "item.wd.golden_runo": "§dGolden Runo",

@@ -1,0 +1,31 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 400,
+  "experience": 0.35,
+  "container": {
+    "count": 1,
+    "id": "minecraft:bowl"
+  },
+  "ingredients": [
+    {
+      "item": "farmersdelight:rice"
+    },
+    {
+      "item": "minecraft:carrot"
+    },
+    {
+      "item": "farmersdelight:onion"
+    },
+    {
+      "item": "wd:raw_slicing_goats_meat"
+    },
+    {
+      "item": "wd:handful_nether"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "count": 1,
+    "id": "wd:goats_meat_pilaf"
+  }
+}

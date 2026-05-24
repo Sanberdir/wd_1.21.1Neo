@@ -6,11 +6,14 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
+import net.minecraft.world.level.material.MapColor;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import ru.imaginaerum.wd.WD;
 import ru.imaginaerum.wd.common.init.blocks.custom.*;
 import ru.imaginaerum.wd.common.init.items.ItemsWD;
+import ru.imaginaerum.wd.common.init.blocks.custom.MagicSoilFarmland;
 
 import java.util.function.Supplier;
 
@@ -143,6 +146,44 @@ public class BlocksWD {
 
     public static final DeferredBlock<Block> SUGAR_SACK = BLOCKS.register("sugar_sack",
             () -> new FacingBlock(BlockBehaviour.Properties.of().sound(SoundType.WOOL).noOcclusion()));
+    // Драколит
+    public static final DeferredBlock<Block> DRAGOLIT_GRID = BLOCKS.register("dragolit_grid",
+            () -> new DragolitGrid(BlockBehaviour.Properties.of().sound(SoundType.METAL).strength(2.5F, 12000F)
+                    .noOcclusion().requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> DRAGOLIT_BLOCK = BLOCKS.register("dragolit_block",
+            () -> new DragolitBlock(BlockBehaviour.Properties.of().sound(SoundType.METAL).strength(5F,12000F)
+                    .noOcclusion().requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> STRANGE_CHIP = BLOCKS.register("strange_chip",
+            () -> new DragolitBlock(BlockBehaviour.Properties.of().sound(SoundType.ANCIENT_DEBRIS).strength(30F, 1200F)
+                    .requiresCorrectToolForDrops().noOcclusion()));
+
+    // Другие блоки
+    public static final DeferredBlock<Block> A_BLOCK_OF_SPARKLING_POLLEN = BLOCKS.register("a_block_of_sparkling_pollen",
+            () -> new WDFallingBlock(BlockBehaviour.Properties.of().strength(0.2F, 120000F)
+                    .sound(SoundType.SAND)));
+    // Горшки для шашлыка
+    public static final DeferredBlock<Block> POT = BLOCKS.register("pot",
+            () -> new Pot(BlockBehaviour.Properties.of().sound(SoundType.DECORATED_POT).strength(0.7F).noOcclusion()));
+    public static final DeferredBlock<Block> POT_FROM_MEAT_GOAT = BLOCKS.register("pot_from_meat_goat",
+            () -> new PotWithKebab(BlockBehaviour.Properties.of().sound(SoundType.DECORATED_POT).strength(0.7F).noOcclusion()));
+    public static final DeferredBlock<Block> POT_FROM_MEAT_CAMEL = BLOCKS.register("pot_from_meat_camel",
+            () -> new PotWithKebab(BlockBehaviour.Properties.of().sound(SoundType.DECORATED_POT).strength(0.7F).noOcclusion()));
+    public static final DeferredBlock<Block> MARINADED_POT_FROM_MEAT_GOAT = BLOCKS.register("marinaded_pot_from_meat_goat",
+            () -> new MarinadedPot(BlockBehaviour.Properties.of().sound(SoundType.DECORATED_POT).strength(0.7F).noOcclusion()));
+    public static final DeferredBlock<Block> MARINADED_POT_FROM_MEAT_CAMEL = BLOCKS.register("marinaded_pot_from_meat_camel",
+            () -> new MarinadedPot(BlockBehaviour.Properties.of().sound(SoundType.DECORATED_POT).strength(0.7F).noOcclusion()));
+    // Волшебная почва и растения
+    public static final DeferredBlock<Block> MAGIC_SOIL = BLOCKS.register("magic_soil",
+            () -> new MagicSoil(BlockBehaviour.Properties.of().mapColor(MapColor.GRASS).instrument(NoteBlockInstrument.BASS).strength(0.5F)
+                    .sound(SoundType.CROP)));
+    public static final DeferredBlock<Block> MAGIC_SOIL_FARMLAND = BLOCKS.register("magic_soil_farmland",
+            () -> new MagicSoilFarmland(BlockBehaviour.Properties.ofFullCopy(Blocks.FARMLAND)));
+    public static final DeferredBlock<Block> MAGIC_SOIL_GRASS = BLOCKS.register("magic_soil_grass",
+            () -> new MagicSoilGrass(BlockBehaviour.Properties.ofFullCopy(Blocks.FARMLAND)));
+    public static final DeferredBlock<Block> BRIGHT_PEPPER_SEEDS = BLOCKS.register("bright_pepper_seeds",
+            () -> new BrightPepperSeeds(BlockBehaviour.Properties.of().mapColor(MapColor.GRASS).instrument(NoteBlockInstrument.BASS).instabreak()
+                    .sound(SoundType.CROP).randomTicks().noCollission().noOcclusion()));
+
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);

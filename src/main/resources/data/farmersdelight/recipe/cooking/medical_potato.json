@@ -1,0 +1,20 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 400,
+  "experience": 0.50,
+  "ingredients": [
+    {
+      "item": "minecraft:poisonous_potato"
+    },
+    {
+      "item": "minecraft:fermented_spider_eye"
+    },
+    {
+      "item": "wd:silveran"
+    }
+  ],
+  "result": {
+    "id": "wd:medical_potato",
+    "count": 1
+  }
+}

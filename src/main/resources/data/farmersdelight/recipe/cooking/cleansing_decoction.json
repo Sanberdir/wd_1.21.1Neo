@@ -1,0 +1,33 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 150,
+  "experience": 3,
+  "container": {
+    "count": 1,
+    "id": "minecraft:glass_bottle"
+  },
+  "ingredients": [
+    {
+      "item": "wd:warped_wart"
+    },
+    {
+      "item": "wd:warped_wart"
+    },
+    {
+      "item": "minecraft:redstone"
+    },
+    {
+      "item": "minecraft:redstone"
+    },
+    {
+      "tag": "minecraft:coals"
+    },
+    {
+      "tag": "minecraft:coals"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "wd:cleansing_decoction"
+  }
+}

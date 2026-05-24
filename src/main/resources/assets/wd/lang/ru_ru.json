@@ -64,6 +64,11 @@
   "block.wd.pot_from_meat_camel": "Горшок с мясом",
   "block.wd.pot_from_meat_goat": "Горшок с мясом",
 
+  "item.wd.magic_soil": "Волшебная почва",
+  "item.wd.magic_soil_farmland": "Волшебная пашня",
+  "item.wd.magic_soil_grass": "Волшебный дёрн",
+  "item.wd.strange_chip": "Эндерняк с вкраплениями",
+  "item.wd.a_block_of_sparkling_pollen": "Блок сверкающей пыльцы",
   "item.wd.sugar_sack": "Мешок сахара",
   "item.wd.a_drop_of_love": "§bКапля любви",
   "item.wd.apple_boat": "Лодка из яблони",
@@ -108,6 +113,11 @@
   "item.wd.coastal_steep_fibers": "Волокна берегового крутня",
   "item.wd.coastal_steep_flower": "Цветок берегового крутня",
   "item.wd.cooked_bear_meat": "Жареная медвежатина",
+  "item.wd.marinaded_pot_from_meat_goat": "Горшок с маринованным мясом",
+  "item.wd.marinaded_pot_from_meat_camel": "Горшок с маринованным мясом",
+  "item.wd.pot": "Горшок",
+  "item.wd.pot_from_meat_camel": "Горшок с мясом",
+  "item.wd.pot_from_meat_goat": "Горшок с мясом",
 
   "item.wd.grass_bone_meal": "Луговая костная мука",
   "item.wd.mycelium_bone_meal": "Мицеливая костная мука",
@@ -226,6 +236,8 @@
   "item.wd.wizard_pie": "§eТорт волшебника",
   "item.wd.wizard_pie_slice": "Кусочек торта волшебника",
 
+  "tooltip.wd.pot_from_meat_goat": "Козлятина",
+  "tooltip.wd.pot_from_meat_camel": "Верблюжатина",
   "wd.cleansing_decoction": "Смывает красители и одно зачарование с предмета, который вы держите в другой руке.",
   "wd.entity_name": "Имя сущности: %s",
   "wd.entity_name_not_set": "Имя сущности: не установлено",

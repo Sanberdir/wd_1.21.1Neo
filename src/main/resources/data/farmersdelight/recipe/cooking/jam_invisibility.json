@@ -1,0 +1,34 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 400,
+  "experience": 2.0,
+  "container": {
+    "count": 1,
+    "id": "wd:jar"
+  },
+  "ingredients": [
+    {
+      "item": "wd:sugar_refined"
+    },
+    {
+      "item": "minecraft:fermented_spider_eye"
+    },
+    {
+      "item": "wd:sugar_refined"
+    },
+    {
+      "item": "minecraft:phantom_membrane"
+    },
+    {
+      "item": "minecraft:honey_bottle"
+    },
+    {
+      "item": "minecraft:phantom_membrane"
+    }
+  ],
+  "recipe_book_tab": "drinks",
+  "result": {
+    "id": "wd:jam_invisibility",
+    "count": 3
+  }
+}

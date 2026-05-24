@@ -87,6 +87,11 @@ public class TabsWD {
                         output.accept(ItemsWD.COOKED_FROG);
                         output.accept(ItemsWD.COOKED_FROG_LEGS);
                         output.accept(ItemsWD.GOULASH_WITH_GOAT_MEAT);
+                        output.accept(ItemsWD.POT);
+                        output.accept(ItemsWD.POT_FROM_MEAT_GOAT);
+                        output.accept(ItemsWD.POT_FROM_MEAT_CAMEL);
+                        output.accept(ItemsWD.MARINADED_POT_FROM_MEAT_CAMEL);
+                        output.accept(ItemsWD.MARINADED_POT_FROM_MEAT_GOAT);
                         output.accept(ItemsWD.SWEET_ROLL);
                         output.accept(ItemsWD.SPAGETTI_IN_THE_NORTH);
                         output.accept(ItemsWD.ROAST_GOAT_MEAT_WITH_FREEZE_BERRIES_SYRUP);
@@ -109,5 +114,18 @@ public class TabsWD {
                         output.accept(ItemsWD.WIZARD_PIE);
                         output.accept(ItemsWD.ROTTEN_PIE);
                         output.accept(ItemsWD.SUGAR_SACK);
+                        output.accept(ItemsWD.DRAGOLIT_BLOCK);
+                        output.accept(ItemsWD.DRAGOLIT_GRID);
+                        output.accept(ItemsWD.STRANGE_CHIP);
+                        output.accept(ItemsWD.A_BLOCK_OF_SPARKLING_POLLEN);
+                        output.accept(ItemsWD.IRON_WATERING_CAN);
+                        output.accept(ItemsWD.MAGIC_SOIL);
+                        output.accept(ItemsWD.MAGIC_SOIL_FARMLAND);
+                        output.accept(ItemsWD.MAGIC_SOIL_GRASS);
+                        output.accept(ItemsWD.BRIGHT_PEPPER_SEEDS);
+                        output.accept(ItemsWD.SILVERAN);
+                        output.accept(ItemsWD.HANDFUL_NETHER);
+                        output.accept(ItemsWD.HANDFUL_YADOGA);
+                        output.accept(ItemsWD.CLEANSING_DECOCTION);
                     }).build());
 }

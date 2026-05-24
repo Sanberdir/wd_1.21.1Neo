@@ -1,0 +1,31 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "wd:turtle_neck"
+    }
+  ],
+  "result": [
+    {
+      "item": {
+        "count": 1,
+        "id": "wd:cleaned_turtle_neck"
+      }
+    },
+    {
+      "item": {
+        "count": 1,
+        "id": "minecraft:turtle_scute"
+      }
+    }
+  ],
+  "tool": [
+    {
+      "type": "farmersdelight:item_ability",
+      "action": "knife_dig"
+    },
+    {
+      "tag": "c:tools/knife"
+    }
+  ]
+}

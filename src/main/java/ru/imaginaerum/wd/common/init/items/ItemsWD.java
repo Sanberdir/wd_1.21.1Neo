@@ -27,21 +27,21 @@ public class ItemsWD {
 
     public static final DeferredItem<Item> POISON_BERRY = ITEMS.register("poison_berry",
             () -> new ItemNameBlockItem(BlocksWD.POISON_BERRY.get(), new Item.Properties().food(new FoodProperties.Builder().nutrition(1).saturationModifier(0.5f).alwaysEdible().fast()
-                            .effect(new MobEffectInstance(MobEffects.HARM, 10, 0), 0.7F)
-                            .effect(new MobEffectInstance(MobEffects.BLINDNESS, 60, 0), 0.5F)
-                            .effect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 120, 2), 0.3F)
-                            .build())));
+                    .effect(new MobEffectInstance(MobEffects.HARM, 10, 0), 0.7F)
+                    .effect(new MobEffectInstance(MobEffects.BLINDNESS, 60, 0), 0.5F)
+                    .effect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 120, 2), 0.3F)
+                    .build())));
 
     public static final DeferredItem<Item> CHARMING_BERRIES = ITEMS.register("charming_berries",
             () -> new ItemNameBlockItem(BlocksWD.CHARMING_BERRIES_BLOCK.get(), new Item.Properties().food(new FoodProperties.Builder().nutrition(1).saturationModifier(0.5f).alwaysEdible().fast()
-                            .effect(new MobEffectInstance(MobEffects.POISON, 80, 0), 0.5F)
-                            .effect(new MobEffectInstance(MobEffects.HEALTH_BOOST, 200, 0), 0.5F)
-                            .build())));
+                    .effect(new MobEffectInstance(MobEffects.POISON, 80, 0), 0.5F)
+                    .effect(new MobEffectInstance(MobEffects.HEALTH_BOOST, 200, 0), 0.5F)
+                    .build())));
 
     public static final DeferredItem<Item> FREEZE_BERRIES = ITEMS.register("freeze_berries",
             () -> new ItemNameBlockItem(BlocksWD.FREEZE_BERRIES.get(), new Item.Properties().food(new FoodProperties.Builder().nutrition(1).saturationModifier(0.5f).alwaysEdible().fast()
-                            .effect(new MobEffectInstance(EffectsWD.FREEZE, 240, 0), 1F)
-                            .build())));
+                    .effect(new MobEffectInstance(EffectsWD.FREEZE, 240, 0), 1F)
+                    .build())));
     public static final DeferredItem<Item> FIRE_STEM = ITEMS.register("fire_stem",
             () -> new ItemNameBlockItem(BlocksWD.FIRE_STEM.get(), new Item.Properties().fireResistant()));
     public static final DeferredItem<Item> COASTAL_STEEP = ITEMS.register("coastal_steep",
@@ -56,18 +56,18 @@ public class ItemsWD {
     public static final DeferredItem<Item> POISON_BERRY_JAM = ITEMS.register("poison_berry_jam",
             () -> new Jam(BlocksWD.POISON_BERRY_JAM.get(), new Item.Properties().food(new FoodProperties.Builder()
                     .nutrition(13).saturationModifier(0.3f)
-                            .effect(new MobEffectInstance(MobEffects.POISON, 180, 0), 1F)
-                            .effect(new MobEffectInstance(MobEffects.HEALTH_BOOST, 3300, 4), 0.95F)
-                            .build())));
+                    .effect(new MobEffectInstance(MobEffects.POISON, 180, 0), 1F)
+                    .effect(new MobEffectInstance(MobEffects.HEALTH_BOOST, 3300, 4), 0.95F)
+                    .build())));
     public static final DeferredItem<Item> FREEZE_JAM = ITEMS.register("freeze_jam",
             () -> new Jam(BlocksWD.FREEZE_JAM.get(), new Item.Properties()
-                            .food(new FoodProperties.Builder().nutrition(10).saturationModifier(0.3f)
+                    .food(new FoodProperties.Builder().nutrition(10).saturationModifier(0.3f)
                             .effect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 100, 0), 0.9F)
                             .effect(new MobEffectInstance(EffectsWD.FREEZE, 2200, 0), 1F)
                             .build())));
     public static final DeferredItem<Item> CHARMING_JAM = ITEMS.register("charming_jam",
             () -> new Jam(BlocksWD.CHARMING_JAM.get(), new Item.Properties()
-                            .food(new FoodProperties.Builder().nutrition(10).saturationModifier(0.3f)
+                    .food(new FoodProperties.Builder().nutrition(10).saturationModifier(0.3f)
                             .effect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200, 1), 0.2F)
                             .effect(new MobEffectInstance(MobEffects.DIG_SPEED, 1200, 0), 0.4F)
                             .effect(new MobEffectInstance(MobEffects.BLINDNESS, 120, 0), 0.6F)
@@ -75,7 +75,7 @@ public class ItemsWD {
                             .build())));
     public static final DeferredItem<Item> SWEET_JAM = ITEMS.register("sweet_jam",
             () -> new Jam(BlocksWD.SWEET_JAM.get(), new Item.Properties()
-                            .food(new FoodProperties.Builder().nutrition(9).saturationModifier(0.6f)
+                    .food(new FoodProperties.Builder().nutrition(9).saturationModifier(0.6f)
                             .build())));
     public static final DeferredItem<Item> APPLE_JAM = ITEMS.register("apple_jam",
             () -> new Jam(BlocksWD.APPLE_JAM.get(), new Item.Properties()
@@ -106,7 +106,7 @@ public class ItemsWD {
                             .build())));
     public static final DeferredItem<Item> SUGAR_REFINED = ITEMS.register("sugar_refined",
             () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(4).saturationModifier(0.5f)
-                            .build())));
+                    .build())));
 
     public static final DeferredItem<Item> RAW_WAFFLES = ITEMS.register("raw_waffles",
             () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(0.6f).alwaysEdible()
@@ -321,4 +321,45 @@ public class ItemsWD {
             () -> new ItemNameBlockItem(BlocksWD.ROTTEN_PIE.get(), new Item.Properties()));
     public static final DeferredItem<Item> SUGAR_SACK = ITEMS.register("sugar_sack",
             () -> new ItemNameBlockItem(BlocksWD.SUGAR_SACK.get(), new Item.Properties()));
+
+    public static final DeferredItem<Item> DRAGOLIT_BLOCK = ITEMS.register("dragolit_block",
+            () -> new ItemNameBlockItem(BlocksWD.DRAGOLIT_BLOCK.get(), new Item.Properties()));
+    public static final DeferredItem<Item> DRAGOLIT_GRID = ITEMS.register("dragolit_grid",
+            () -> new ItemNameBlockItem(BlocksWD.DRAGOLIT_GRID.get(), new Item.Properties()));
+    public static final DeferredItem<Item> STRANGE_CHIP = ITEMS.register("strange_chip",
+            () -> new ItemNameBlockItem(BlocksWD.STRANGE_CHIP.get(), new Item.Properties()));
+
+    public static final DeferredItem<Item> A_BLOCK_OF_SPARKLING_POLLEN = ITEMS.register("a_block_of_sparkling_pollen",
+            () -> new ItemNameBlockItem(BlocksWD.A_BLOCK_OF_SPARKLING_POLLEN.get(), new Item.Properties()));
+
+    public static final DeferredItem<Item> POT = ITEMS.register("pot",
+            () -> new ItemNameBlockItem(BlocksWD.POT.get(), new Item.Properties()));
+    public static final DeferredItem<Item> POT_FROM_MEAT_GOAT = ITEMS.register("pot_from_meat_goat",
+            () -> new ItemNameBlockItem(BlocksWD.POT_FROM_MEAT_GOAT.get(), new Item.Properties()));
+    public static final DeferredItem<Item> POT_FROM_MEAT_CAMEL = ITEMS.register("pot_from_meat_camel",
+            () -> new ItemNameBlockItem(BlocksWD.POT_FROM_MEAT_CAMEL.get(), new Item.Properties()));
+    public static final DeferredItem<Item> MARINADED_POT_FROM_MEAT_CAMEL = ITEMS.register("marinaded_pot_from_meat_camel",
+            () -> new ItemNameBlockItem(BlocksWD.MARINADED_POT_FROM_MEAT_CAMEL.get(), new Item.Properties()));
+    public static final DeferredItem<Item> MARINADED_POT_FROM_MEAT_GOAT = ITEMS.register("marinaded_pot_from_meat_goat",
+            () -> new ItemNameBlockItem(BlocksWD.MARINADED_POT_FROM_MEAT_GOAT.get(), new Item.Properties()));
+
+    public static final DeferredItem<Item> IRON_WATERING_CAN = ITEMS.register("iron_watering_can",
+            () -> new IronWateringCan(new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<Item> MAGIC_SOIL = ITEMS.register("magic_soil",
+            () -> new ItemNameBlockItem(BlocksWD.MAGIC_SOIL.get(), new Item.Properties()));
+    public static final DeferredItem<Item> MAGIC_SOIL_FARMLAND = ITEMS.register("magic_soil_farmland",
+            () -> new ItemNameBlockItem(BlocksWD.MAGIC_SOIL_FARMLAND.get(), new Item.Properties()));
+    public static final DeferredItem<Item> MAGIC_SOIL_GRASS = ITEMS.register("magic_soil_grass",
+            () -> new ItemNameBlockItem(BlocksWD.MAGIC_SOIL_GRASS.get(), new Item.Properties()));
+    public static final DeferredItem<Item> BRIGHT_PEPPER_SEEDS = ITEMS.register("bright_pepper_seeds",
+            () -> new ItemNameBlockItem(BlocksWD.BRIGHT_PEPPER_SEEDS.get(), new Item.Properties()));
+
+    public static final DeferredItem<Item> SILVERAN = ITEMS.register("silveran",
+            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> HANDFUL_YADOGA = ITEMS.register("handful_yadoga",
+            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> HANDFUL_NETHER = ITEMS.register("handful_nether",
+            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> CLEANSING_DECOCTION = ITEMS.register("cleansing_decoction",
+            () -> new CleansingDecoction(new Item.Properties().durability(12)));
 }

@@ -1,0 +1,34 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "count": 1,
+    "id": "wd:jar"
+  },
+  "cookingtime": 400,
+  "experience": 0.35,
+  "ingredients": [
+    {
+      "item": "minecraft:apple"
+    },
+    {
+      "item": "minecraft:apple"
+    },
+    {
+      "item": "minecraft:apple"
+    },
+    {
+      "item": "minecraft:apple"
+    },
+    {
+      "item": "wd:sugar_refined"
+    },
+    {
+      "item": "wd:sugar_refined"
+    }
+  ],
+  "recipe_book_tab": "drinks",
+  "result": {
+    "count": 1,
+    "id": "wd:apple_jam"
+  }
+}
