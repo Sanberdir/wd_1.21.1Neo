@@ -165,16 +165,27 @@ public class RoseMurderer extends BaseEntityBlock {
     }
 
     private void saveEntityInfoToBlockEntity(LevelAccessor world, BlockPos pos, Entity entity) {
+
         if (!world.isClientSide()) {
+
             BlockEntity blockEntity = world.getBlockEntity(pos);
+
             if (blockEntity instanceof RoseMurdererBlockEntity roseBE) {
+
                 roseBE.setEntityInfo(
                         String.valueOf(BuiltInRegistries.ENTITY_TYPE.getKey(entity.getType())),
                         entity.getDisplayName().getString()
                 );
 
+                roseBE.setChanged();
+
                 if (world instanceof Level level) {
-                    level.sendBlockUpdated(pos, roseBE.getBlockState(), roseBE.getBlockState(), 3);
+                    level.sendBlockUpdated(
+                            pos,
+                            roseBE.getBlockState(),
+                            roseBE.getBlockState(),
+                            3
+                    );
                 }
             }
         }
@@ -197,7 +208,6 @@ public class RoseMurderer extends BaseEntityBlock {
 
             saveEntityInfoToBlockEntity(level, pos, entity);
             level.scheduleTick(pos, this, 120);
-            saveEntityInfoToBlockEntity(level, pos, entity);
         }
     }
 

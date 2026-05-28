@@ -11,6 +11,7 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import ru.imaginaerum.wd.WD;
 import ru.imaginaerum.wd.common.init.blocks.BlocksWD;
+import ru.imaginaerum.wd.common.init.items.custom.StarBallItem;
 import ru.imaginaerum.wd.common.init.effects.EffectsWD;
 import ru.imaginaerum.wd.common.init.items.custom.*;
 
@@ -362,4 +363,13 @@ public class ItemsWD {
             () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> CLEANSING_DECOCTION = ITEMS.register("cleansing_decoction",
             () -> new CleansingDecoction(new Item.Properties().durability(12)));
+    public static final DeferredItem<Item> SOUL_STONE = ITEMS.register("soul_stone",
+            () -> new SoulStone(new Item.Properties().stacksTo(1)));
+
+    public static final DeferredItem<Item> ROBIN_STICK = ITEMS.register("robin_stick",
+            () -> new StarBallItem(new Item.Properties().durability(70)));
+    public static final DeferredItem<Item> STAR_BALL = ITEMS.register("star_ball",
+            () -> new StarBallItem(new Item.Properties().stacksTo(1)));
+
+
 }

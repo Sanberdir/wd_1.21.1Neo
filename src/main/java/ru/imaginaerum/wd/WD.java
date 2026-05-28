@@ -30,6 +30,7 @@ import org.slf4j.Logger;
 import ru.imaginaerum.wd.common.init.blocks.BlocksWD;
 import ru.imaginaerum.wd.common.init.blocks.custom.entity.ModBlockEntities;
 import ru.imaginaerum.wd.common.init.effects.EffectsWD;
+import ru.imaginaerum.wd.common.init.entityes.ModEntities;
 import ru.imaginaerum.wd.common.init.items.ItemsWD;
 import ru.imaginaerum.wd.common.init.patricles.ModParticles;
 import ru.imaginaerum.wd.common.init.patricles.custom.StombleRoseParticles;
@@ -62,6 +63,7 @@ public class WD {
         CustomSoundEvents.SOUND_EVENTS.register(modEventBus);
         TabsWD.TABS_WD.register(modEventBus);
         ModParticles.PARTICLE_TYPES.register(modEventBus);
+        ModEntities.ENTITY_TYPES.register(modEventBus);
         ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
         NeoForge.EVENT_BUS.addListener(this::onRegisterBrewingRecipes);
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us

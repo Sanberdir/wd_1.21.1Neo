@@ -1,0 +1,98 @@
+{
+  "wd:freeze_berries": {
+    "drops": [
+      {
+        "item": "wd:freeze_jam",
+        "min_count": 1,
+        "max_count": 2,
+        "chance": 1.0
+      },
+      {
+        "item": "wd:freeze_jam",
+        "min_count": 1,
+        "max_count": 2,
+        "chance": 0.3
+      }
+    ],"experience": 5
+  },
+  "wd:coastal_steep": {
+    "drops": [
+      {
+        "item": "wd:krutnevy_bread",
+        "min_count": 1,
+        "max_count": 3,
+        "chance": 1.0
+      },
+      {
+        "item": "wd:krutnevy_bread",
+        "min_count": 1,
+        "max_count": 2,
+        "chance": 0.3
+      }
+    ],"experience": 5
+  },
+  "wd:fire_stem": {
+    "drops": [
+      {
+        "item": "wd:handful_nether",
+        "min_count": 1,
+        "max_count": 3,
+        "chance": 1.0
+      },
+      {
+        "item": "wd:bright_pepper",
+        "min_count": 1,
+        "max_count": 2,
+        "chance": 0.35
+      }
+    ],"experience": 5
+  },
+  "wd:bright_pepper_seeds": {
+    "drops": [
+      {
+        "item": "wd:hunting_twister",
+        "min_count": 1,
+        "max_count": 3,
+        "chance": 1.0
+      },
+      {
+        "item": "wd:nether_grog",
+        "min_count": 1,
+        "max_count": 2,
+        "chance": 0.05
+      }
+    ],"experience": 20
+  },
+  "wd:charming_berries_block": {
+    "drops": [
+      {
+        "item": "wd:charming_jam",
+        "min_count": 1,
+        "max_count": 3,
+        "chance": 1.0
+      },
+      {
+        "item": "wd:charming_jam",
+        "min_count": 1,
+        "max_count": 2,
+        "chance": 0.35
+      }
+    ],"experience": 5
+  },
+  "wd:poison_berry": {
+    "drops": [
+      {
+        "item": "wd:poison_berry_jam",
+        "min_count": 1,
+        "max_count": 3,
+        "chance": 1.0
+      },
+      {
+        "item": "wd:handful_yadoga",
+        "min_count": 1,
+        "max_count": 2,
+        "chance": 0.35
+      }
+    ],"experience": 5
+  }
+}
