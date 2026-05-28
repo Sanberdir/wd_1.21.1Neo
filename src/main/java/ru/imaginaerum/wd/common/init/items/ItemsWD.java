@@ -3,10 +3,7 @@ package ru.imaginaerum.wd.common.init.items;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemNameBlockItem;
-import net.minecraft.world.item.Rarity;
-import net.minecraft.world.item.Tiers;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -376,5 +373,16 @@ public class ItemsWD {
 
     public static final DeferredItem<Item> DRAGOLITE_CAGE = ITEMS.register("dragolite_cage",
             () -> new DragoliteCage(BlocksWD.DRAGOLITE_CAGE.get(), new Item.Properties()));
+
+    public static final DeferredItem<Item> FLAME_ARROW = ITEMS.register("flame_arrow",
+            () -> new FlameArrowItem(new Item.Properties()));
+
+
+    public static final DeferredItem<Item> MUSIC_DISK_1 = ITEMS.register("music_disk_1",
+            () -> new Item(new Item.Properties().stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(JukeboxSongsWD.THE_LONG_WAY_HOME)));
+    public static final DeferredItem<Item> MUSIC_DISK_2 = ITEMS.register("music_disk_2",
+            () -> new Item(new Item.Properties().stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(JukeboxSongsWD.SO_LITTLE_BUT_SO_BIG)));
+    public static final DeferredItem<Item> MUSIC_DISK_3 = ITEMS.register("music_disk_3",
+            () -> new Item(new Item.Properties().stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(JukeboxSongsWD.WANDERING_MINSTREL)));
 
 }

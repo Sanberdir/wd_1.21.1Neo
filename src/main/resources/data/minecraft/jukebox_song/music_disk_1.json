@@ -1,0 +1,8 @@
+{
+  "comparator_output": 8,
+  "description": {
+    "translate": "item.wd.music_disk_1.desc"
+  },
+  "length_in_seconds": 255.0,
+  "sound_event": "wd:rezolv_12_the_long_way_home"
+}

@@ -1,0 +1,8 @@
+{
+  "comparator_output": 8,
+  "description": {
+    "translate": "item.wd.music_disk_3.desc"
+  },
+  "length_in_seconds": 174.0,
+  "sound_event": "wd:rezolv_4_wandering_minstrel"
+}

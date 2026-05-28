@@ -129,7 +129,12 @@ public class TabsWD {
                         output.accept(ItemsWD.CLEANSING_DECOCTION);
                         output.accept(ItemsWD.SOUL_STONE);
                         output.accept(ItemsWD.DRAGOLIT_RAPIER);
+                        output.accept(ItemsWD.FLAME_ARROW);
                         output.accept(ItemsWD.ROBIN_STICK);
                         output.accept(ItemsWD.DRAGOLITE_CAGE);
+                        output.accept(ItemsWD.MUSIC_DISK_1);
+                        output.accept(ItemsWD.MUSIC_DISK_2);
+                        output.accept(ItemsWD.MUSIC_DISK_3);
+
                     }).build());
 }

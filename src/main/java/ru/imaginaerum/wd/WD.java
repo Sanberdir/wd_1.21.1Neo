@@ -2,6 +2,7 @@ package ru.imaginaerum.wd;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.Item;
@@ -31,6 +32,8 @@ import ru.imaginaerum.wd.common.init.blocks.BlocksWD;
 import ru.imaginaerum.wd.common.init.blocks.custom.entity.ModBlockEntities;
 import ru.imaginaerum.wd.common.init.effects.EffectsWD;
 import ru.imaginaerum.wd.common.init.entityes.ModEntities;
+import ru.imaginaerum.wd.common.init.entityes.item_projectile_entities.arrows.DispenserRegistry;
+import ru.imaginaerum.wd.common.init.entityes.item_projectile_entities.arrows.FlameArrowRenderer;
 import ru.imaginaerum.wd.common.init.items.ItemsWD;
 import ru.imaginaerum.wd.common.init.patricles.ModParticles;
 import ru.imaginaerum.wd.common.init.patricles.custom.StombleRoseParticles;
@@ -95,7 +98,7 @@ public class WD {
         ));
     }
     private void commonSetup(final FMLCommonSetupEvent event) {
-
+        DispenserRegistry.registerBehaviors();
     }
     private static final Collection<AbstractMap.SimpleEntry<Runnable, Integer>> workQueue = new ConcurrentLinkedQueue<>();
 
@@ -130,7 +133,7 @@ public class WD {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-
+            EntityRenderers.register(ModEntities.FLAME_ARROW.get(), FlameArrowRenderer::new);
         }
     }
 }
