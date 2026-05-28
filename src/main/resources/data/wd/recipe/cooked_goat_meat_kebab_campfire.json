@@ -5,5 +5,7 @@
   "ingredient": {
     "item": "wd:goat_meat_kebab"
   },
-  "result": "wd:cooked_goat_meat_kebab"
+  "result": {
+    "id": "wd:cooked_goat_meat_kebab"
+  }
 }

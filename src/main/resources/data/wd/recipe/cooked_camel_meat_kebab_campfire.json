@@ -5,5 +5,7 @@
   "ingredient": {
     "item": "wd:camel_meat_kebab"
   },
-  "result": "wd:cooked_camel_meat_kebab"
+  "result": {
+    "id": "wd:cooked_camel_meat_kebab"
+  }
 }

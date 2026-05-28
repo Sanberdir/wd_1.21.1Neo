@@ -5,5 +5,7 @@
   "ingredient": {
     "item": "wd:raw_bear_meat"
   },
-  "result": "wd:cooked_bear_meat"
+  "result": {
+    "id": "wd:cooked_bear_meat"
+  }
 }

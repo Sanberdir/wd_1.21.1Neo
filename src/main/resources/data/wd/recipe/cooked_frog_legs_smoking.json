@@ -5,5 +5,7 @@
   "ingredient": {
     "item": "wd:frog_body"
   },
-  "result": "wd:cooked_frog_legs"
+  "result": {
+    "id": "wd:cooked_frog_legs"
+  }
 }

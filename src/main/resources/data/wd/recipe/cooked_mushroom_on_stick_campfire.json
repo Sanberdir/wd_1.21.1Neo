@@ -5,5 +5,7 @@
   "ingredient": {
     "item": "wd:mushroom_on_stick"
   },
-  "result": "wd:cooked_mushroom_on_stick"
+  "result": {
+    "id": "wd:cooked_mushroom_on_stick"
+  }
 }

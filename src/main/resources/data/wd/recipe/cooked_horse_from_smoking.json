@@ -5,5 +5,7 @@
   "ingredient": {
     "item": "wd:raw_horse"
   },
-  "result": "wd:cooked_horse"
+  "result": {
+    "id": "wd:cooked_horse"
+  }
 }

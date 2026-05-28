@@ -5,5 +5,7 @@
   "ingredient": {
     "item": "wd:shpikachki"
   },
-  "result": "wd:cooked_shpikachki"
+  "result": {
+    "id": "wd:cooked_shpikachki"
+  }
 }

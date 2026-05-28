@@ -5,5 +5,7 @@
   "ingredient": {
     "item": "wd:raw_waffles"
   },
-  "result": "wd:waffles"
+  "result": {
+    "id": "wd:waffles"
+  }
 }
