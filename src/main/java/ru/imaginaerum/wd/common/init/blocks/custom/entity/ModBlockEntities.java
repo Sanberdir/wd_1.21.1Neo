@@ -26,4 +26,11 @@ public class ModBlockEntities {
                             BlocksWD.GLOWING_JAM.get()
                     ).build(null)
             );
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<DragoliteCageBlockEntity>> DRAGOLITE_CAGE_ENTITY =
+            BLOCK_ENTITIES.register("dragolite_cage_entity", () ->
+                    BlockEntityType.Builder.of(
+                            DragoliteCageBlockEntity::new,
+                            BlocksWD.DRAGOLITE_CAGE.get()
+                    ).build(null)
+            );
 }

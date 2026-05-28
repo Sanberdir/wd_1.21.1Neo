@@ -6,6 +6,7 @@ import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.Tiers;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -369,7 +370,11 @@ public class ItemsWD {
     public static final DeferredItem<Item> ROBIN_STICK = ITEMS.register("robin_stick",
             () -> new StarBallItem(new Item.Properties().durability(70)));
     public static final DeferredItem<Item> STAR_BALL = ITEMS.register("star_ball",
-            () -> new StarBallItem(new Item.Properties().stacksTo(1)));
+            () -> new StarBallItem(new Item.Properties()));
+    public static final DeferredItem<Item> DRAGOLIT_RAPIER = ITEMS.register("dragolit_rapier",
+            () -> new Rapier(Tiers.NETHERITE, -2,-1.6f,new Item.Properties().durability(70)));
 
+    public static final DeferredItem<Item> DRAGOLITE_CAGE = ITEMS.register("dragolite_cage",
+            () -> new DragoliteCage(BlocksWD.DRAGOLITE_CAGE.get(), new Item.Properties()));
 
 }

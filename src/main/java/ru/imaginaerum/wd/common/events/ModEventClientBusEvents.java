@@ -13,7 +13,9 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 
 import ru.imaginaerum.wd.WD;
+import ru.imaginaerum.wd.common.init.blocks.custom.entity.DragoliteCageBlockEntity;
 import ru.imaginaerum.wd.common.init.blocks.custom.entity.ModBlockEntities;
+import ru.imaginaerum.wd.common.init.blocks.custom.entity.renderer.DragoliteCageEntityRenderer;
 import ru.imaginaerum.wd.common.init.blocks.custom.entity.renderer.GlowingJamBlockRenderer;
 import ru.imaginaerum.wd.common.init.items.ItemsWD;
 import ru.imaginaerum.wd.common.init.items.custom.SoulStone;
@@ -63,5 +65,6 @@ public class ModEventClientBusEvents {
     @SubscribeEvent
     public static void registerBER(EntityRenderersEvent.RegisterRenderers event) {
         event.registerBlockEntityRenderer(ModBlockEntities.GLOWING_JAM.get(), GlowingJamBlockRenderer::new);
+        event.registerBlockEntityRenderer(ModBlockEntities.DRAGOLITE_CAGE_ENTITY.get(), DragoliteCageEntityRenderer::new);
     }
 }

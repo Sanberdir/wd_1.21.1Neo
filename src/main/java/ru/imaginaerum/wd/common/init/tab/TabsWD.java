@@ -128,5 +128,8 @@ public class TabsWD {
                         output.accept(ItemsWD.HANDFUL_YADOGA);
                         output.accept(ItemsWD.CLEANSING_DECOCTION);
                         output.accept(ItemsWD.SOUL_STONE);
+                        output.accept(ItemsWD.DRAGOLIT_RAPIER);
+                        output.accept(ItemsWD.ROBIN_STICK);
+                        output.accept(ItemsWD.DRAGOLITE_CAGE);
                     }).build());
 }

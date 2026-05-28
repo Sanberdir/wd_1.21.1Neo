@@ -184,6 +184,9 @@ public class BlocksWD {
             () -> new BrightPepperSeeds(BlockBehaviour.Properties.of().mapColor(MapColor.GRASS).instrument(NoteBlockInstrument.BASS).instabreak()
                     .sound(SoundType.CROP).randomTicks().noCollission().noOcclusion()));
 
+    public static final DeferredBlock<Block> DRAGOLITE_CAGE = BLOCKS.register("dragolite_cage",
+            () -> new DragoliteCage(BlockBehaviour.Properties.of().sound(SoundType.METAL)
+                    .noOcclusion().strength(4F).explosionResistance(12000F).randomTicks().requiresCorrectToolForDrops()));
 
 
 
