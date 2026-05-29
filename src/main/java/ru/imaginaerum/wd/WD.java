@@ -1,11 +1,9 @@
 package ru.imaginaerum.wd;
 
 import com.mojang.logging.LogUtils;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potion;
@@ -23,9 +21,7 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.fml.loading.FMLEnvironment;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
-import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.common.brewing.BrewingRecipeRegistry;
 import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import net.neoforged.neoforge.event.tick.ServerTickEvent;
@@ -41,10 +37,9 @@ import ru.imaginaerum.wd.common.init.items.ItemsWD;
 import ru.imaginaerum.wd.common.init.items.armor.ModArmorMaterials;
 import ru.imaginaerum.wd.common.init.items.armor.model_layered.WDModelLayers;
 import ru.imaginaerum.wd.common.init.patricles.ModParticles;
-import ru.imaginaerum.wd.common.init.patricles.custom.StombleRoseParticles;
 import ru.imaginaerum.wd.common.init.recipes.ProperBrewingRecipe;
 import ru.imaginaerum.wd.common.init.tab.TabsWD;
-import ru.imaginaerum.wd.common.sounds.CustomSoundEvents;
+import ru.imaginaerum.wd.common.init.sounds.CustomSoundEvents;
 import ru.imaginaerum.wd.server.CommonProxy;
 
 import java.util.AbstractMap;

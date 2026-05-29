@@ -23,7 +23,7 @@ import net.neoforged.neoforge.server.ServerLifecycleHooks;
 import ru.imaginaerum.wd.WD;
 import ru.imaginaerum.wd.common.init.blocks.BlocksWD;
 import ru.imaginaerum.wd.common.init.items.ItemsWD;
-import ru.imaginaerum.wd.common.sounds.CustomSoundEvents;
+import ru.imaginaerum.wd.common.init.sounds.CustomSoundEvents;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;

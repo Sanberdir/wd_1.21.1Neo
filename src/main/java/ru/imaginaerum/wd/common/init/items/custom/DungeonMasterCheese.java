@@ -16,7 +16,7 @@ import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.item.component.CustomModelData;
 import net.minecraft.world.level.Level;
 
-import ru.imaginaerum.wd.common.sounds.CustomSoundEvents;
+import ru.imaginaerum.wd.common.init.sounds.CustomSoundEvents;
 
 public class DungeonMasterCheese extends Item {
 

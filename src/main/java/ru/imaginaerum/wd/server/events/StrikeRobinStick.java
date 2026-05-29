@@ -1,7 +1,6 @@
 package ru.imaginaerum.wd.server.events;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -12,7 +11,7 @@ import net.minecraft.world.level.LevelAccessor;
 import ru.imaginaerum.wd.common.init.entityes.ModEntities;
 import ru.imaginaerum.wd.common.init.entityes.item_projectile_entities.StarBall;
 import ru.imaginaerum.wd.common.init.items.ItemsWD;
-import ru.imaginaerum.wd.common.sounds.CustomSoundEvents;
+import ru.imaginaerum.wd.common.init.sounds.CustomSoundEvents;
 
 public class StrikeRobinStick {
 

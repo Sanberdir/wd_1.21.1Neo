@@ -25,7 +25,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import ru.imaginaerum.wd.common.init.patricles.ModParticles;
-import ru.imaginaerum.wd.common.sounds.CustomSoundEvents;
+import ru.imaginaerum.wd.common.init.sounds.CustomSoundEvents;
 
 public class RottenPie extends Block {
 

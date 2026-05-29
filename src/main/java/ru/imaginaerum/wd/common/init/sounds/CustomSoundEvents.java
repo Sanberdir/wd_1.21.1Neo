@@ -1,4 +1,4 @@
-package ru.imaginaerum.wd.common.sounds;
+package ru.imaginaerum.wd.common.init.sounds;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
