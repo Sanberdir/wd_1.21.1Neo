@@ -135,6 +135,8 @@ public class TabsWD {
                         output.accept(ItemsWD.MUSIC_DISK_1);
                         output.accept(ItemsWD.MUSIC_DISK_2);
                         output.accept(ItemsWD.MUSIC_DISK_3);
+                        output.accept(ItemsWD.MAGIC_HAT);
+                        output.accept(ItemsWD.MAGIC_HAT_JAM);
 
                     }).build());
 }

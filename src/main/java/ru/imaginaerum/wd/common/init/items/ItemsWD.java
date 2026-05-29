@@ -9,6 +9,7 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import ru.imaginaerum.wd.WD;
 import ru.imaginaerum.wd.common.init.blocks.BlocksWD;
+import ru.imaginaerum.wd.common.init.items.armor.ModArmorMaterials;
 import ru.imaginaerum.wd.common.init.items.custom.StarBallItem;
 import ru.imaginaerum.wd.common.init.effects.EffectsWD;
 import ru.imaginaerum.wd.common.init.items.custom.*;
@@ -384,5 +385,10 @@ public class ItemsWD {
             () -> new Item(new Item.Properties().stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(JukeboxSongsWD.SO_LITTLE_BUT_SO_BIG)));
     public static final DeferredItem<Item> MUSIC_DISK_3 = ITEMS.register("music_disk_3",
             () -> new Item(new Item.Properties().stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(JukeboxSongsWD.WANDERING_MINSTREL)));
+
+    public static final DeferredItem<Item> MAGIC_HAT = ITEMS.register("magic_hat",
+            () -> new MagicHat(ModArmorMaterials.MAGIC, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final DeferredItem<Item> MAGIC_HAT_JAM = ITEMS.register("magic_hat_jam",
+            () -> new MagicHatJam(ModArmorMaterials.MAGIC_JAM, ArmorItem.Type.HELMET, new Item.Properties()));
 
 }
