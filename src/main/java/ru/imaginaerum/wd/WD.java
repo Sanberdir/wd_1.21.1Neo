@@ -1,16 +1,27 @@
 package ru.imaginaerum.wd;
 
 import com.mojang.logging.LogUtils;
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.geom.EntityModelSet;
+import net.minecraft.client.renderer.entity.ArmorStandRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.client.renderer.entity.LivingEntityRenderer;
+import net.minecraft.client.renderer.entity.player.PlayerRenderer;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.decoration.ArmorStand;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potion;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
@@ -35,17 +46,19 @@ import ru.imaginaerum.wd.common.init.entityes.item_projectile_entities.arrows.Di
 import ru.imaginaerum.wd.common.init.entityes.item_projectile_entities.arrows.FlameArrowRenderer;
 import ru.imaginaerum.wd.common.init.items.ItemsWD;
 import ru.imaginaerum.wd.common.init.items.armor.ModArmorMaterials;
+import ru.imaginaerum.wd.common.init.items.armor.elytra.DragoliteElytraArmorStandLayer;
+import ru.imaginaerum.wd.common.init.items.armor.elytra.DragoliteElytraLayer;
 import ru.imaginaerum.wd.common.init.items.armor.model_layered.WDModelLayers;
 import ru.imaginaerum.wd.common.init.patricles.ModParticles;
 import ru.imaginaerum.wd.common.init.recipes.ProperBrewingRecipe;
 import ru.imaginaerum.wd.common.init.tab.TabsWD;
 import ru.imaginaerum.wd.common.init.sounds.CustomSoundEvents;
 import ru.imaginaerum.wd.server.CommonProxy;
+import vectorwing.farmersdelight.common.block.entity.CabinetBlockEntity;
+import vectorwing.farmersdelight.common.registry.ModBlockEntityTypes;
 
-import java.util.AbstractMap;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import java.lang.reflect.Field;
+import java.util.*;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
@@ -64,6 +77,7 @@ public class WD {
         } else {
             PROXY = new CommonProxy();
         }
+        if (FMLEnvironment.dist.isClient()) modEventBus.addListener(EntityRenderersEvent.AddLayers.class, this::registerElytraLayer);
         PROXY.commonInit(modEventBus);
         NeoForge.EVENT_BUS.register(this);
         BlocksWD.BLOCKS.register(modEventBus);
@@ -97,6 +111,20 @@ public class WD {
         stack.set(DataComponents.POTION_CONTENTS, new PotionContents(potion));
         return stack;
     }
+    @OnlyIn(Dist.CLIENT)
+    private void registerElytraLayer(EntityRenderersEvent.AddLayers event) {
+        EntityModelSet entityModels = event.getEntityModels();
+        event.getSkins().forEach(s -> {
+            LivingEntityRenderer<? extends Player, ? extends EntityModel<? extends Player>> livingEntityRenderer = event.getSkin(s);
+            if (livingEntityRenderer instanceof PlayerRenderer playerRenderer) {
+                playerRenderer.addLayer(new DragoliteElytraLayer(playerRenderer, entityModels));
+            }
+        });
+        LivingEntityRenderer<ArmorStand, ? extends EntityModel<ArmorStand>> livingEntityRenderer = event.getRenderer(EntityType.ARMOR_STAND);
+        if (livingEntityRenderer instanceof ArmorStandRenderer armorStandRenderer) {
+            armorStandRenderer.addLayer(new DragoliteElytraArmorStandLayer(armorStandRenderer, entityModels));
+        }
+    }
     private void onRegisterBrewingRecipes(RegisterBrewingRecipesEvent event) {
         event.getBuilder().addRecipe(new ProperBrewingRecipe(
                 Ingredient.of(Items.GLASS_BOTTLE),
@@ -105,6 +133,26 @@ public class WD {
         ));
     }
     private void commonSetup(final FMLCommonSetupEvent event) {
+        // Регистрация для FD ящика из яблоки
+        event.enqueueWork(() -> {
+            try {
+                BlockEntityType<CabinetBlockEntity> cabinetType =
+                        (BlockEntityType<CabinetBlockEntity>) ModBlockEntityTypes.CABINET.get();
+
+                Field validBlocksField = BlockEntityType.class.getDeclaredField("validBlocks");
+                validBlocksField.setAccessible(true);
+                Set<Block> existingBlocks = (Set<Block>) validBlocksField.get(cabinetType);
+
+// Создаём новый изменяемый Set и копируем туда старые блоки + наш
+                Set<Block> newValidBlocks = new HashSet<>(existingBlocks);
+                newValidBlocks.add(BlocksWD.APPLE_CABINET.get());
+
+// Заменяем поле новым Set'ом
+                validBlocksField.set(cabinetType, newValidBlocks);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        });
         DispenserRegistry.registerBehaviors();
     }
     private static final Collection<AbstractMap.SimpleEntry<Runnable, Integer>> workQueue = new ConcurrentLinkedQueue<>();

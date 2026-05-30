@@ -55,7 +55,6 @@ public class WDArmorRenderProperties implements IClientItemExtensions {
     public static void renderCustomArmor(PoseStack poseStack, MultiBufferSource multiBufferSource,
                                           int light, ItemStack itemStack, ArmorItem armorItem,
                                           Model armorModel, boolean legs, ResourceLocation texture) {
-        System.out.println("MBS class: " + multiBufferSource.getClass().getName());
         if (isMaterial(armorItem, ModArmorMaterials.MAGIC)) {
             VertexConsumer vc = itemStack.hasFoil()
                     ? VertexMultiConsumer.create(

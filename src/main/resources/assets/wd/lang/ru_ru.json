@@ -64,6 +64,7 @@
   "block.wd.pot_from_meat_camel": "Горшок с мясом",
   "block.wd.pot_from_meat_goat": "Горшок с мясом",
 
+
   "item.wd.magic_soil": "Волшебная почва",
   "item.wd.magic_soil_farmland": "Волшебная пашня",
   "item.wd.magic_soil_grass": "Волшебный дёрн",
@@ -71,6 +72,7 @@
   "item.wd.a_block_of_sparkling_pollen": "Блок сверкающей пыльцы",
   "item.wd.sugar_sack": "Мешок сахара",
   "item.wd.a_drop_of_love": "§bКапля любви",
+  "item.wd.apple_cabinet": "Кладовая из яблони",
   "item.wd.apple_boat": "Лодка из яблони",
   "item.wd.apple_chest_boat": "Грузовая лодка из яблони",
   "item.wd.apple_fence": "Забор из яблони",
@@ -78,6 +80,7 @@
   "item.wd.apple_sign": "Табличка из яблони",
   "item.wd.apple_hanging_sign": "Подвесная табличка из яблони",
   "item.wd.apple_jam": "Яблочный джем",
+  "item.wd.apple_planks": "Доски из яблони",
   "item.wd.apple_leaves": "Листва яблони",
   "item.wd.apple_leaves_stages": "Листва яблони",
   "item.wd.apple_pressure_plate": "Нажимная плита из яблони",

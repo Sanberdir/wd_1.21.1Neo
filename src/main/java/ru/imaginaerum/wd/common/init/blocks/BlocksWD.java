@@ -2,18 +2,20 @@ package ru.imaginaerum.wd.common.init.blocks;
 
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import ru.imaginaerum.wd.WD;
 import ru.imaginaerum.wd.common.init.blocks.custom.*;
 import ru.imaginaerum.wd.common.init.items.ItemsWD;
 import ru.imaginaerum.wd.common.init.blocks.custom.MagicSoilFarmland;
+import ru.imaginaerum.wd.common.init.level.ModWoodType;
+import vectorwing.farmersdelight.common.block.CabinetBlock;
 
 import java.util.function.Supplier;
 
@@ -188,6 +190,42 @@ public class BlocksWD {
             () -> new DragoliteCage(BlockBehaviour.Properties.of().sound(SoundType.METAL)
                     .noOcclusion().strength(4F).explosionResistance(12000F).randomTicks().requiresCorrectToolForDrops()));
 
+    public static final DeferredBlock<Block> APPLE_PLANKS = BLOCKS.register("apple_planks",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.WOOD).instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F)
+                    .sound(SoundType.WOOD).ignitedByLava()));
+    public static final DeferredBlock<Block> APPLE_CABINET = BLOCKS.register("apple_cabinet",
+            () -> new CabinetBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.WOOD).instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F)
+                    .sound(SoundType.WOOD).ignitedByLava()));
+    public static final DeferredBlock<Block> APPLE_STAIRS = BLOCKS.register("apple_stairs",
+            () -> new StairBlock(APPLE_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(APPLE_PLANKS.get())));
+    public static final DeferredBlock<Block> APPLE_SLAB = BLOCKS.register("apple_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD)
+                    .instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).sound(SoundType.WOOD).ignitedByLava()));
+    public static final DeferredBlock<Block> APPLE_FENCE = BLOCKS.register("apple_fence",
+            () -> new FenceBlock(BlockBehaviour.Properties.of().mapColor(APPLE_PLANKS.get().defaultMapColor())
+                    .forceSolidOn().instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F)
+                    .sound(SoundType.WOOD).ignitedByLava()));
+    public static final DeferredBlock<Block> APPLE_FENCE_GATE = BLOCKS.register("apple_fence_gate",
+            () -> new FenceGateBlock(ModWoodType.APPLE_WOOD, BlockBehaviour.Properties.of().mapColor(APPLE_PLANKS.get()
+                                        .defaultMapColor()).forceSolidOn().instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F)
+                                .ignitedByLava()));
+    public static final DeferredBlock<Block> APPLE_BUTTON = BLOCKS.register("apple_button",
+            () -> new ButtonBlock(BlockSetType.OAK,10, BlockBehaviour.Properties.of().noCollission()
+                    .strength(0.5F).pushReaction(PushReaction.DESTROY)));
+    public static final DeferredBlock<Block> APPLE_PRESSURE_PLATE = BLOCKS.register("apple_pressure_plate",
+            () -> new PressurePlateBlock(BlockSetType.OAK, BlockBehaviour.Properties.of()
+                    .mapColor(APPLE_PLANKS.get().defaultMapColor()).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission()
+                    .strength(0.5F).ignitedByLava().pushReaction(PushReaction.DESTROY)));
+    public static final DeferredBlock<Block> APPLE_DOOR = BLOCKS.register("apple_door",
+            () -> new DoorBlock(BlockSetType.OAK, BlockBehaviour.Properties.of().mapColor(APPLE_PLANKS.get()
+                            .defaultMapColor()).instrument(NoteBlockInstrument.BASS).strength(3.0F).noOcclusion()
+                    .ignitedByLava().pushReaction(PushReaction.DESTROY)));
+    public static final DeferredBlock<Block> APPLE_TRAPDOOR = BLOCKS.register("apple_trapdoor",
+            () -> new TrapDoorBlock(BlockSetType.OAK, BlockBehaviour.Properties.of().mapColor(APPLE_PLANKS.get()
+                            .defaultMapColor()).instrument(NoteBlockInstrument.BASS).strength(3.0F).noOcclusion()
+                    .ignitedByLava().pushReaction(PushReaction.DESTROY)));
 
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {

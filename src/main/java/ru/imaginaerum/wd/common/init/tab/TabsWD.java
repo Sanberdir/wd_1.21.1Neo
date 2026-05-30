@@ -15,9 +15,31 @@ public class TabsWD {
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, WD.MOD_ID);
 
     public static final Supplier<CreativeModeTab> WD_TAB = TABS_WD.register("tabs_wd",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ItemsWD.JAR.get()))
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ItemsWD.MAGIC_HAT_JAM.get()))
                     .title(Component.translatable("creativetab.wd.tabs"))
                     .displayItems((itemDisplayParameters, output) -> {
+                        output.accept(ItemsWD.SOUL_STONE);
+                        output.accept(ItemsWD.DRAGOLIT_RAPIER);
+                        output.accept(ItemsWD.FLAME_ARROW);
+                        output.accept(ItemsWD.ROBIN_STICK);
+                        output.accept(ItemsWD.DRAGOLITE_CAGE);
+                        output.accept(ItemsWD.MUSIC_DISK_1);
+                        output.accept(ItemsWD.MUSIC_DISK_2);
+                        output.accept(ItemsWD.MUSIC_DISK_3);
+                        output.accept(ItemsWD.MAGIC_HAT);
+                        output.accept(ItemsWD.MAGIC_HAT_JAM);
+                        output.accept(ItemsWD.MAG_ELYTRA);
+                        output.accept(ItemsWD.DRAGOLITE_UPGRADE_SMITHING_TEMPLATE);
+                        output.accept(ItemsWD.APPLE_PLANKS);
+                        output.accept(ItemsWD.APPLE_STAIRS);
+                        output.accept(ItemsWD.APPLE_SLAB);
+                        output.accept(ItemsWD.APPLE_FENCE);
+                        output.accept(ItemsWD.APPLE_FENCE_GATE);
+                        output.accept(ItemsWD.APPLE_BUTTON);
+                        output.accept(ItemsWD.APPLE_PRESSURE_PLATE);
+                        output.accept(ItemsWD.APPLE_DOOR);
+                        output.accept(ItemsWD.APPLE_TRAPDOOR);
+                        output.accept(ItemsWD.APPLE_CABINET);
                         output.accept(ItemsWD.COASTAL_STEEP);
                         output.accept(ItemsWD.COASTAL_STEEP_FIBERS);
                         output.accept(ItemsWD.COASTAL_STEEP_FLOWER);
@@ -127,16 +149,5 @@ public class TabsWD {
                         output.accept(ItemsWD.HANDFUL_NETHER);
                         output.accept(ItemsWD.HANDFUL_YADOGA);
                         output.accept(ItemsWD.CLEANSING_DECOCTION);
-                        output.accept(ItemsWD.SOUL_STONE);
-                        output.accept(ItemsWD.DRAGOLIT_RAPIER);
-                        output.accept(ItemsWD.FLAME_ARROW);
-                        output.accept(ItemsWD.ROBIN_STICK);
-                        output.accept(ItemsWD.DRAGOLITE_CAGE);
-                        output.accept(ItemsWD.MUSIC_DISK_1);
-                        output.accept(ItemsWD.MUSIC_DISK_2);
-                        output.accept(ItemsWD.MUSIC_DISK_3);
-                        output.accept(ItemsWD.MAGIC_HAT);
-                        output.accept(ItemsWD.MAGIC_HAT_JAM);
-
                     }).build());
 }

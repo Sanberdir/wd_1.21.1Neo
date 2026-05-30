@@ -48,6 +48,19 @@ public class ModArmorMaterials {
                     0f
             )
     );
+    public static final Holder<ArmorMaterial> ELYTRA = ARMOR_MATERIALS.register("elytra", () ->
+            new ArmorMaterial(
+                    makeDefenseMap(3, 8, 6, 3),
+                    28,
+                    SoundEvents.ARMOR_EQUIP_LEATHER,
+                    () -> Ingredient.of(ItemsWD.MAG_ELYTRA.get()),
+                    List.of(new ArmorMaterial.Layer(
+                            ResourceLocation.fromNamespaceAndPath(WD.MOD_ID, "elytra")
+                    )),
+                    1f,
+                    0f
+            )
+    );
 
     private static Map<ArmorItem.Type, Integer> makeDefenseMap(int boots, int leggings, int chestplate, int helmet) {
         EnumMap<ArmorItem.Type, Integer> map = new EnumMap<>(ArmorItem.Type.class);

@@ -1,5 +1,8 @@
 package ru.imaginaerum.wd.common.init.items;
 
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
@@ -13,6 +16,8 @@ import ru.imaginaerum.wd.common.init.items.armor.ModArmorMaterials;
 import ru.imaginaerum.wd.common.init.items.custom.StarBallItem;
 import ru.imaginaerum.wd.common.init.effects.EffectsWD;
 import ru.imaginaerum.wd.common.init.items.custom.*;
+
+import java.util.List;
 
 public class ItemsWD {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(WD.MOD_ID);
@@ -391,4 +396,37 @@ public class ItemsWD {
     public static final DeferredItem<Item> MAGIC_HAT_JAM = ITEMS.register("magic_hat_jam",
             () -> new MagicHatJam(ModArmorMaterials.MAGIC_JAM, ArmorItem.Type.HELMET, new Item.Properties()));
 
+
+    public static final DeferredItem<Item> MAG_ELYTRA = ITEMS.register("mag_elytra",
+            () -> new ModElytra(ModArmorMaterials.ELYTRA, ArmorItem.Type.CHESTPLATE, new Item.Properties().durability(1200).fireResistant()));
+    public static final DeferredItem<Item> DRAGOLITE_UPGRADE_SMITHING_TEMPLATE = ITEMS.register("dragolite_upgrade_smithing_template",
+            () -> new WDSmithingTemplateItem((
+                    Component.translatable("item.wd.dragolite_upgrade_apply_to").withStyle(ChatFormatting.BLUE)), // displayName
+                    Component.translatable("item.wd.dragolite_upgrade_smithing_template.base_slot").withStyle(ChatFormatting.BLUE), // baseSlotDescription
+                    Component.translatable("item.wd.dragolite_upgrade_smithing_template.add_slot").withStyle(ChatFormatting.GRAY), // addSlotDescription
+                    Component.translatable("item.wd.dragolite_upgrade_smithing_template.base_tooltip"), // baseSlotTooltip
+                    Component.translatable("item.wd.dragolite_upgrade_smithing_template.add_tooltip"), // addSlotTooltip
+                    List.of(ResourceLocation.fromNamespaceAndPath("wd", "item/empty_slot_elytra")),
+                    List.of(ResourceLocation.fromNamespaceAndPath("minecraft", "item/empty_slot_ingot"))
+            ));
+    public static final DeferredItem<Item> APPLE_PLANKS = ITEMS.register("apple_planks",
+            () -> new ItemNameBlockItem(BlocksWD.APPLE_PLANKS.get(), new Item.Properties()));
+    public static final DeferredItem<Item> APPLE_CABINET = ITEMS.register("apple_cabinet",
+            () -> new ItemNameBlockItem(BlocksWD.APPLE_CABINET.get(), new Item.Properties()));
+    public static final DeferredItem<Item> APPLE_STAIRS = ITEMS.register("apple_stairs",
+            () -> new ItemNameBlockItem(BlocksWD.APPLE_STAIRS.get(), new Item.Properties()));
+    public static final DeferredItem<Item> APPLE_SLAB = ITEMS.register("apple_slab",
+            () -> new ItemNameBlockItem(BlocksWD.APPLE_SLAB.get(), new Item.Properties()));
+    public static final DeferredItem<Item> APPLE_FENCE = ITEMS.register("apple_fence",
+            () -> new ItemNameBlockItem(BlocksWD.APPLE_FENCE.get(), new Item.Properties()));
+    public static final DeferredItem<Item> APPLE_FENCE_GATE = ITEMS.register("apple_fence_gate",
+            () -> new ItemNameBlockItem(BlocksWD.APPLE_FENCE_GATE.get(), new Item.Properties()));
+    public static final DeferredItem<Item> APPLE_BUTTON = ITEMS.register("apple_button",
+            () -> new ItemNameBlockItem(BlocksWD.APPLE_BUTTON.get(), new Item.Properties()));
+    public static final DeferredItem<Item> APPLE_PRESSURE_PLATE = ITEMS.register("apple_pressure_plate",
+            () -> new ItemNameBlockItem(BlocksWD.APPLE_PRESSURE_PLATE.get(), new Item.Properties()));
+    public static final DeferredItem<Item> APPLE_DOOR = ITEMS.register("apple_door",
+            () -> new ItemNameBlockItem(BlocksWD.APPLE_DOOR.get(), new Item.Properties()));
+    public static final DeferredItem<Item> APPLE_TRAPDOOR = ITEMS.register("apple_trapdoor",
+            () -> new ItemNameBlockItem(BlocksWD.APPLE_TRAPDOOR.get(), new Item.Properties()));
 }
