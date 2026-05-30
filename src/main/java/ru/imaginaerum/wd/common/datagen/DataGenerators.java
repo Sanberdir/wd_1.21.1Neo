@@ -16,5 +16,7 @@ public class DataGenerators {
         DataGenerator generator = event.getGenerator();
         PackOutput packOutput = generator.getPackOutput();
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
+
+        generator.addProvider(event.includeServer(), new ModWorldGenProvider(packOutput, event.getLookupProvider()));
     }
 }

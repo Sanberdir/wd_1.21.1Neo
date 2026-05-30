@@ -30,6 +30,13 @@ public class TabsWD {
                         output.accept(ItemsWD.MAGIC_HAT_JAM);
                         output.accept(ItemsWD.MAG_ELYTRA);
                         output.accept(ItemsWD.DRAGOLITE_UPGRADE_SMITHING_TEMPLATE);
+                        output.accept(ItemsWD.APPLE_LOG);
+                        output.accept(ItemsWD.APPLE_WOOD);
+                        output.accept(ItemsWD.STRIPPED_APPLE_LOG);
+                        output.accept(ItemsWD.STRIPPED_APPLE_WOOD);
+                        output.accept(ItemsWD.APPLE_LEAVES_STAGES);
+                        output.accept(ItemsWD.APPLE_LEAVES);
+                        output.accept(ItemsWD.APPLE_SAPLING);
                         output.accept(ItemsWD.APPLE_PLANKS);
                         output.accept(ItemsWD.APPLE_STAIRS);
                         output.accept(ItemsWD.APPLE_SLAB);

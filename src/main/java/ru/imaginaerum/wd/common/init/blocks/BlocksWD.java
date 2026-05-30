@@ -15,6 +15,7 @@ import ru.imaginaerum.wd.common.init.blocks.custom.*;
 import ru.imaginaerum.wd.common.init.items.ItemsWD;
 import ru.imaginaerum.wd.common.init.blocks.custom.MagicSoilFarmland;
 import ru.imaginaerum.wd.common.init.level.ModWoodType;
+import ru.imaginaerum.wd.common.init.trees.ModTreeGrowers;
 import vectorwing.farmersdelight.common.block.CabinetBlock;
 
 import java.util.function.Supplier;
@@ -190,10 +191,36 @@ public class BlocksWD {
             () -> new DragoliteCage(BlockBehaviour.Properties.of().sound(SoundType.METAL)
                     .noOcclusion().strength(4F).explosionResistance(12000F).randomTicks().requiresCorrectToolForDrops()));
 
+    public static final DeferredBlock<Block> APPLE_LOG = BLOCKS.register("apple_log",
+            () -> new StrippedWoodLogs(BlockBehaviour.Properties.of()
+                    .instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.WOOD).ignitedByLava()));
+    public static final DeferredBlock<Block> APPLE_WOOD = BLOCKS.register("apple_wood",
+            () -> new StrippedWoodLogs(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.WOOD).instrument(NoteBlockInstrument.BASS).strength(2.0F)
+                    .sound(SoundType.WOOD).ignitedByLava()));
+    public static final DeferredBlock<Block> STRIPPED_APPLE_LOG = BLOCKS.register("stripped_apple_log",
+            () -> new StrippedWoodLogs(BlockBehaviour.Properties.of()
+                    .instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.WOOD).ignitedByLava()));
+    public static final DeferredBlock<Block> STRIPPED_APPLE_WOOD = BLOCKS.register("stripped_apple_wood",
+            () -> new StrippedWoodLogs(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.WOOD).instrument(NoteBlockInstrument.BASS).strength(2.0F)
+                    .sound(SoundType.WOOD).ignitedByLava()));
+
     public static final DeferredBlock<Block> APPLE_PLANKS = BLOCKS.register("apple_planks",
             () -> new Block(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.WOOD).instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F)
                     .sound(SoundType.WOOD).ignitedByLava()));
+
+    public static final DeferredBlock<Block> APPLE_LEAVES = BLOCKS.register("apple_leaves",
+            () -> new LeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).randomTicks()));
+    public static final DeferredBlock<Block> APPLE_LEAVES_STAGES = BLOCKS.register("apple_leaves_stages",
+            () -> new AppleLeavesStages(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).randomTicks()));
+
+    public static final DeferredBlock<Block> APPLE_SAPLING = BLOCKS.register("apple_sapling",
+            () -> new SaplingBlock(ModTreeGrowers.APPLE ,BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.PLANT).noCollission()
+                    .randomTicks().instabreak().sound(SoundType.GRASS)));
+
     public static final DeferredBlock<Block> APPLE_CABINET = BLOCKS.register("apple_cabinet",
             () -> new CabinetBlock(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.WOOD).instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F)

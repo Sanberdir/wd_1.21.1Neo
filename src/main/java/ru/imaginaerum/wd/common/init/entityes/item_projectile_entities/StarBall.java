@@ -16,6 +16,7 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 import ru.imaginaerum.wd.WD;
 import ru.imaginaerum.wd.common.init.items.ItemsWD;
+import ru.imaginaerum.wd.server.events.HitAppleStarBall;
 import ru.imaginaerum.wd.server.events.HitBlockStarBall;
 import ru.imaginaerum.wd.server.events.HitEntityHandler;
 
@@ -69,6 +70,7 @@ public class StarBall extends AbstractHurtingProjectileMod implements ItemSuppli
                 blockPos.getY(),
                 blockPos.getZ()
         );
+        HitAppleStarBall.handle(serverLevel, blockPos);
 
         WD.queueServerWork(1, this::discard);
     }

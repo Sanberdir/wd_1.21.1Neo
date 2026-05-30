@@ -409,6 +409,21 @@ public class ItemsWD {
                     List.of(ResourceLocation.fromNamespaceAndPath("wd", "item/empty_slot_elytra")),
                     List.of(ResourceLocation.fromNamespaceAndPath("minecraft", "item/empty_slot_ingot"))
             ));
+    public static final DeferredItem<Item> APPLE_LOG = ITEMS.register("apple_log",
+            () -> new ItemNameBlockItem(BlocksWD.APPLE_LOG.get(), new Item.Properties()));
+    public static final DeferredItem<Item> APPLE_WOOD = ITEMS.register("apple_wood",
+            () -> new ItemNameBlockItem(BlocksWD.APPLE_WOOD.get(), new Item.Properties()));
+    public static final DeferredItem<Item> STRIPPED_APPLE_LOG = ITEMS.register("stripped_apple_log",
+            () -> new ItemNameBlockItem(BlocksWD.STRIPPED_APPLE_LOG.get(), new Item.Properties()));
+    public static final DeferredItem<Item> STRIPPED_APPLE_WOOD = ITEMS.register("stripped_apple_wood",
+            () -> new ItemNameBlockItem(BlocksWD.STRIPPED_APPLE_WOOD.get(), new Item.Properties()));
+    public static final DeferredItem<Item> APPLE_LEAVES = ITEMS.register("apple_leaves",
+            () -> new ItemNameBlockItem(BlocksWD.APPLE_LEAVES.get(), new Item.Properties()));
+    public static final DeferredItem<Item> APPLE_LEAVES_STAGES = ITEMS.register("apple_leaves_stages",
+            () -> new ItemNameBlockItem(BlocksWD.APPLE_LEAVES_STAGES.get(), new Item.Properties()));
+    public static final DeferredItem<Item> APPLE_SAPLING = ITEMS.register("apple_sapling",
+            () -> new ItemNameBlockItem(BlocksWD.APPLE_SAPLING.get(), new Item.Properties()));
+
     public static final DeferredItem<Item> APPLE_PLANKS = ITEMS.register("apple_planks",
             () -> new ItemNameBlockItem(BlocksWD.APPLE_PLANKS.get(), new Item.Properties()));
     public static final DeferredItem<Item> APPLE_CABINET = ITEMS.register("apple_cabinet",
