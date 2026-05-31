@@ -16,6 +16,7 @@ import ru.imaginaerum.wd.common.init.items.armor.ModArmorMaterials;
 import ru.imaginaerum.wd.common.init.items.custom.StarBallItem;
 import ru.imaginaerum.wd.common.init.effects.EffectsWD;
 import ru.imaginaerum.wd.common.init.items.custom.*;
+import ru.imaginaerum.wd.common.init.items.entity.ModBoatEntity;
 
 import java.util.List;
 
@@ -444,4 +445,16 @@ public class ItemsWD {
             () -> new ItemNameBlockItem(BlocksWD.APPLE_DOOR.get(), new Item.Properties()));
     public static final DeferredItem<Item> APPLE_TRAPDOOR = ITEMS.register("apple_trapdoor",
             () -> new ItemNameBlockItem(BlocksWD.APPLE_TRAPDOOR.get(), new Item.Properties()));
+    public static final DeferredItem<Item> APPLE_SIGN = ITEMS.register("apple_sign",
+            () -> new SignItem(new Item.Properties().stacksTo(16), BlocksWD.APPLE_SIGN.get(),
+                    BlocksWD.APPLE_WALL_SIGN.get()));
+    public static final DeferredItem<Item> APPLE_HANGING_SIGN = ITEMS.register("apple_hanging_sign",
+            () -> new HangingSignItem(BlocksWD.APPLE_HANGING_SIGN.get(),
+                    BlocksWD.APPLE_WALL_HANGING_SIGN.get(),new Item.Properties().stacksTo(16)));
+
+    public static final DeferredItem<Item> APPLE_BOAT = ITEMS.register("apple_boat",
+            () -> new ModBoatItem(false, ModBoatEntity.Type.APPLE, new Item.Properties()));
+    public static final DeferredItem<Item> APPLE_CHEST_BOAT = ITEMS.register("apple_chest_boat",
+            () -> new ModBoatItem(true, ModBoatEntity.Type.APPLE, new Item.Properties()));
+
 }

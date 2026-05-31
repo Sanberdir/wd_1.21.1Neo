@@ -7,8 +7,10 @@ import net.minecraft.client.renderer.entity.ArmorStandRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.client.renderer.entity.player.PlayerRenderer;
+import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.decoration.ArmorStand;
 import net.minecraft.world.entity.player.Player;
@@ -19,6 +21,7 @@ import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
@@ -36,9 +39,11 @@ import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import net.neoforged.neoforge.event.tick.ServerTickEvent;
+import net.neoforged.neoforge.registries.RegisterEvent;
 import org.slf4j.Logger;
 import ru.imaginaerum.wd.client.ClientProxy;
 import ru.imaginaerum.wd.common.init.blocks.BlocksWD;
+import ru.imaginaerum.wd.common.init.blocks.ModFlammableBlocks;
 import ru.imaginaerum.wd.common.init.blocks.custom.entity.ModBlockEntities;
 import ru.imaginaerum.wd.common.init.effects.EffectsWD;
 import ru.imaginaerum.wd.common.init.entityes.ModEntities;
@@ -49,6 +54,8 @@ import ru.imaginaerum.wd.common.init.items.armor.ModArmorMaterials;
 import ru.imaginaerum.wd.common.init.items.armor.elytra.DragoliteElytraArmorStandLayer;
 import ru.imaginaerum.wd.common.init.items.armor.elytra.DragoliteElytraLayer;
 import ru.imaginaerum.wd.common.init.items.armor.model_layered.WDModelLayers;
+import ru.imaginaerum.wd.common.init.items.entity.ModEntitiesItem;
+import ru.imaginaerum.wd.common.init.items.entity.client.ModBoatRenderer;
 import ru.imaginaerum.wd.common.init.patricles.ModParticles;
 import ru.imaginaerum.wd.common.init.recipes.ProperBrewingRecipe;
 import ru.imaginaerum.wd.common.init.tab.TabsWD;
@@ -83,6 +90,7 @@ public class WD {
         BlocksWD.BLOCKS.register(modEventBus);
         EffectsWD.MOB_EFFECTS.register(modEventBus);
         ItemsWD.ITEMS.register(modEventBus);
+        ModEntitiesItem.ENTITIES_ITEM.register(modEventBus);
         CustomSoundEvents.SOUND_EVENTS.register(modEventBus);
         TabsWD.TABS_WD.register(modEventBus);
         ModParticles.PARTICLE_TYPES.register(modEventBus);
@@ -134,6 +142,7 @@ public class WD {
     }
     private void commonSetup(final FMLCommonSetupEvent event) {
         // Регистрация для FD ящика из яблоки
+        event.enqueueWork(ModFlammableBlocks::registerFlammableBlocks);
         event.enqueueWork(() -> {
             try {
                 BlockEntityType<CabinetBlockEntity> cabinetType =
@@ -189,6 +198,8 @@ public class WD {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
             EntityRenderers.register(ModEntities.FLAME_ARROW.get(), FlameArrowRenderer::new);
+            EntityRenderers.register(ModEntitiesItem.MOD_BOAT.get(), pContext -> new ModBoatRenderer(pContext, false));
+            EntityRenderers.register(ModEntitiesItem.MOD_CHEST_BOAT.get(), pContext -> new ModBoatRenderer(pContext, true));
         }
         @SubscribeEvent
         public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {

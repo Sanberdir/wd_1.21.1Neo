@@ -1,0 +1,55 @@
+{
+  "values": {
+    "wd:fire_stem": {
+      "chance": 0.4
+    },
+    "wd:warped_wart": {
+      "chance": 0.2
+    },
+    "wd:poison_berry": {
+      "chance": 0.2
+    },
+    "wd:charming_berries": {
+      "chance": 0.2
+    },
+    "wd:freeze_berries": {
+      "chance": 0.2
+    },
+    "wd:meadow_golden_flower": {
+      "chance": 0.8
+    },
+    "wd:rose_of_ghosty_tears": {
+      "chance": 0.2
+    },
+    "wd:rose_of_the_murderer": {
+      "chance": 0.2
+    },
+    "wd:medical_potato": {
+      "chance": 0.2
+    },
+    "wd:spatial_orchid": {
+      "chance": 0.62
+    },
+    "wd:apple_leaves": {
+      "chance": 0.4
+    },
+    "wd:apple_leaves_stages": {
+      "chance": 0.4
+    },
+    "wd:apple_sapling": {
+      "chance": 0.4
+    },
+    "wd:bright_pepper": {
+      "chance": 0.5
+    },
+    "wd:coastal_steep": {
+      "chance": 0.5
+    },
+    "wd:coastal_steep_flower": {
+      "chance": 0.5
+    },
+    "wd:bright_pepper_seeds": {
+      "chance": 0.6
+    }
+  }
+}

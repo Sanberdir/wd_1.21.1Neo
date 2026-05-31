@@ -33,4 +33,13 @@ public class ModBlockEntities {
                             BlocksWD.DRAGOLITE_CAGE.get()
                     ).build(null)
             );
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ModSignBlockEntity>> APPLE_SIGN =
+            BLOCK_ENTITIES.register("apple_sign", () ->
+                    BlockEntityType.Builder.of(ModSignBlockEntity::new,
+                            BlocksWD.APPLE_SIGN.get(), BlocksWD.APPLE_WALL_SIGN.get()).build(null));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ModHangingSignBlockEntity>> APPLE_HANGING_SIGN =
+            BLOCK_ENTITIES.register("apple_hanging_sign", () ->
+                    BlockEntityType.Builder.of(ModHangingSignBlockEntity::new,
+                            BlocksWD.APPLE_HANGING_SIGN.get(), BlocksWD.APPLE_WALL_HANGING_SIGN.get()).build(null));
 }

@@ -46,6 +46,10 @@ public class TabsWD {
                         output.accept(ItemsWD.APPLE_PRESSURE_PLATE);
                         output.accept(ItemsWD.APPLE_DOOR);
                         output.accept(ItemsWD.APPLE_TRAPDOOR);
+                        output.accept(ItemsWD.APPLE_SIGN);
+                        output.accept(ItemsWD.APPLE_HANGING_SIGN);
+                        output.accept(ItemsWD.APPLE_BOAT);
+                        output.accept(ItemsWD.APPLE_CHEST_BOAT);
                         output.accept(ItemsWD.APPLE_CABINET);
                         output.accept(ItemsWD.COASTAL_STEEP);
                         output.accept(ItemsWD.COASTAL_STEEP_FIBERS);

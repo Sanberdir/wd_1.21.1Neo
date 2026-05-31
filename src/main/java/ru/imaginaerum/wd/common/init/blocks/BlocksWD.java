@@ -253,7 +253,19 @@ public class BlocksWD {
             () -> new TrapDoorBlock(BlockSetType.OAK, BlockBehaviour.Properties.of().mapColor(APPLE_PLANKS.get()
                             .defaultMapColor()).instrument(NoteBlockInstrument.BASS).strength(3.0F).noOcclusion()
                     .ignitedByLava().pushReaction(PushReaction.DESTROY)));
-
+    public static final DeferredBlock<Block> APPLE_SIGN = BLOCKS.register("apple_sign",
+            () -> new ModStandingSignBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.WOOD).noCollission().strength(1.0F).sound(SoundType.CHERRY_WOOD), ModWoodType.APPLE_WOOD));
+    public static final DeferredBlock<Block> APPLE_WALL_SIGN = BLOCKS.register("apple_wall_sign",
+            () -> new ModWallSignBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.WOOD).noCollission().strength(1.0F).sound(SoundType.CHERRY_WOOD).dropsLike(BlocksWD.APPLE_SIGN.get()), ModWoodType.APPLE_WOOD));
+    public static final DeferredBlock<Block> APPLE_HANGING_SIGN = BLOCKS.register("apple_hanging_sign",
+            () -> new ModHangingSignBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.WOOD).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(1.0F), ModWoodType.APPLE_WOOD));
+    public static final DeferredBlock<Block> APPLE_WALL_HANGING_SIGN = BLOCKS.register("apple_wall_hanging_sign",
+            () -> new ModWallHangingSignBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.WOOD).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(1.0F)
+                    .dropsLike(APPLE_HANGING_SIGN.get()), ModWoodType.APPLE_WOOD));
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);

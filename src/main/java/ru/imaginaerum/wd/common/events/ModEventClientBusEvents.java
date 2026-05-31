@@ -1,5 +1,9 @@
 package ru.imaginaerum.wd.common.events;
 
+import net.minecraft.client.model.BoatModel;
+import net.minecraft.client.model.ChestBoatModel;
+import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
+import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
@@ -19,6 +23,7 @@ import ru.imaginaerum.wd.common.init.blocks.custom.entity.renderer.DragoliteCage
 import ru.imaginaerum.wd.common.init.blocks.custom.entity.renderer.GlowingJamBlockRenderer;
 import ru.imaginaerum.wd.common.init.items.ItemsWD;
 import ru.imaginaerum.wd.common.init.items.custom.SoulStone;
+import ru.imaginaerum.wd.common.init.items.entity.client.ModModelLayersItem;
 import ru.imaginaerum.wd.common.init.patricles.ModParticles;
 import ru.imaginaerum.wd.common.init.patricles.custom.*;
 
@@ -63,8 +68,15 @@ public class ModEventClientBusEvents {
         });
     }
     @SubscribeEvent
+    public static void registerLayer(EntityRenderersEvent.RegisterLayerDefinitions event) {
+        event.registerLayerDefinition(ModModelLayersItem.APPLE_BOAT_LAYER, BoatModel::createBodyModel);
+        event.registerLayerDefinition(ModModelLayersItem.APPLE_CHEST_BOAT_LAYER, ChestBoatModel::createBodyModel);
+    }
+    @SubscribeEvent
     public static void registerBER(EntityRenderersEvent.RegisterRenderers event) {
         event.registerBlockEntityRenderer(ModBlockEntities.GLOWING_JAM.get(), GlowingJamBlockRenderer::new);
         event.registerBlockEntityRenderer(ModBlockEntities.DRAGOLITE_CAGE_ENTITY.get(), DragoliteCageEntityRenderer::new);
+        event.registerBlockEntityRenderer(ModBlockEntities.APPLE_SIGN.get(), SignRenderer::new);
+        event.registerBlockEntityRenderer(ModBlockEntities.APPLE_HANGING_SIGN.get(), HangingSignRenderer::new);
     }
 }
