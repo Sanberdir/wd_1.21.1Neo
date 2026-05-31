@@ -3,6 +3,7 @@
   "pools": [
     {
       "bonus_rolls": 0,
+      "rolls": 1,
       "entries": [
         {
           "type": "minecraft:alternatives",
@@ -16,22 +17,20 @@
                     {
                       "condition": "minecraft:match_tool",
                       "predicate": {
-                        "items": [
-                          "minecraft:shears"
-                        ]
+                        "items": "minecraft:shears"
                       }
                     },
                     {
                       "condition": "minecraft:match_tool",
                       "predicate": {
-                        "enchantments": [
-                          {
-                            "enchantment": "minecraft:silk_touch",
-                            "levels": {
-                              "min": 1
+                        "predicates": {
+                          "minecraft:enchantments": [
+                            {
+                              "enchantment": "minecraft:silk_touch",
+                              "levels": { "min": 1 }
                             }
-                          }
-                        ]
+                          ]
+                        }
                       }
                     }
                   ]
@@ -46,25 +45,20 @@
                   "condition": "minecraft:survives_explosion"
                 },
                 {
-                  "chances": [
-                    0.03,
-                    0.04,
-                    0.06,
-                    0.95
-                  ],
                   "condition": "minecraft:table_bonus",
-                  "enchantment": "minecraft:fortune"
+                  "enchantment": "minecraft:fortune",
+                  "chances": [ 0.03, 0.04, 0.06, 0.95 ]
                 }
               ],
               "name": "wd:apple_sapling"
             }
           ]
         }
-      ],
-      "rolls": 1
+      ]
     },
     {
       "bonus_rolls": 0,
+      "rolls": 1,
       "conditions": [
         {
           "condition": "minecraft:inverted",
@@ -74,22 +68,20 @@
               {
                 "condition": "minecraft:match_tool",
                 "predicate": {
-                  "items": [
-                    "minecraft:shears"
-                  ]
+                  "items": "minecraft:shears"
                 }
               },
               {
                 "condition": "minecraft:match_tool",
                 "predicate": {
-                  "enchantments": [
-                    {
-                      "enchantment": "minecraft:silk_touch",
-                      "levels": {
-                        "min": 1
+                  "predicates": {
+                    "minecraft:enchantments": [
+                      {
+                        "enchantment": "minecraft:silk_touch",
+                        "levels": { "min": 1 }
                       }
-                    }
-                  ]
+                    ]
+                  }
                 }
               }
             ]
@@ -101,26 +93,20 @@
           "type": "minecraft:item",
           "conditions": [
             {
-              "chances": [
-                0.01,
-                0.02,
-                0.03,
-                0.04,
-                0.08
-              ],
               "condition": "minecraft:table_bonus",
-              "enchantment": "minecraft:fortune"
+              "enchantment": "minecraft:fortune",
+              "chances": [ 0.01, 0.02, 0.03, 0.04, 0.08 ]
             }
           ],
           "functions": [
             {
+              "function": "minecraft:set_count",
               "add": false,
               "count": {
                 "type": "minecraft:uniform",
-                "max": 2,
-                "min": 1
-              },
-              "function": "minecraft:set_count"
+                "min": 1,
+                "max": 2
+              }
             },
             {
               "function": "minecraft:explosion_decay"
@@ -128,8 +114,7 @@
           ],
           "name": "minecraft:stick"
         }
-      ],
-      "rolls": 1
+      ]
     }
   ],
   "random_sequence": "wd:blocks/apple_leaves_stages"
