@@ -6,7 +6,8 @@
   "mixins": [
     "HoglinMixin",
     "AbstractPiglinMixin",
-    "LivingEntityMixin"
+    "LivingEntityMixin",
+    "ZombieMixin"
   ],
   "client": [
     "client.HumanoidArmorLayerMixin"

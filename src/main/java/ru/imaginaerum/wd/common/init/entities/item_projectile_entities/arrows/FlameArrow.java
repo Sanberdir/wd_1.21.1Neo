@@ -1,11 +1,10 @@
-package ru.imaginaerum.wd.common.init.entityes.item_projectile_entities.arrows;
+package ru.imaginaerum.wd.common.init.entities.item_projectile_entities.arrows;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -17,9 +16,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 
-import net.neoforged.neoforge.event.EventHooks;
-
-import ru.imaginaerum.wd.common.init.entityes.ModEntities;
+import ru.imaginaerum.wd.common.init.entities.ModEntities;
 import ru.imaginaerum.wd.common.init.items.ItemsWD;
 
 public class FlameArrow extends AbstractArrow {

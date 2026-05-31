@@ -1,4 +1,4 @@
-package ru.imaginaerum.wd.common.init.entityes.item_projectile_entities;
+package ru.imaginaerum.wd.common.init.entities.item_projectile_entities;
 
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.nbt.CompoundTag;

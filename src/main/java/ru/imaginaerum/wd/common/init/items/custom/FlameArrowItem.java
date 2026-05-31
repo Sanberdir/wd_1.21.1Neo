@@ -19,7 +19,7 @@ import net.minecraft.world.item.enchantment.Enchantments;
 
 import net.minecraft.world.level.Level;
 
-import ru.imaginaerum.wd.common.init.entityes.item_projectile_entities.arrows.FlameArrow;
+import ru.imaginaerum.wd.common.init.entities.item_projectile_entities.arrows.FlameArrow;
 
 public class FlameArrowItem extends ArrowItem implements ProjectileItem {
 

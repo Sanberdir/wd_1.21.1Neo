@@ -1,14 +1,13 @@
-package ru.imaginaerum.wd.common.init.entityes;
+package ru.imaginaerum.wd.common.init.entities;
 
 import net.minecraft.core.registries.Registries;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.bus.api.IEventBus;
 import ru.imaginaerum.wd.WD;
-import ru.imaginaerum.wd.common.init.entityes.item_projectile_entities.StarBall;
-import ru.imaginaerum.wd.common.init.entityes.item_projectile_entities.arrows.FlameArrow;
+import ru.imaginaerum.wd.common.init.entities.item_projectile_entities.StarBall;
+import ru.imaginaerum.wd.common.init.entities.item_projectile_entities.arrows.FlameArrow;
 
 import java.util.function.Supplier;
 

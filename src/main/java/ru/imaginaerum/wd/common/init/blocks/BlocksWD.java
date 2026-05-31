@@ -105,6 +105,8 @@ public class BlocksWD {
             () -> new WizardPie(BlockBehaviour.Properties.of().strength(0.5F).sound(SoundType.WOOL).randomTicks()));
     public static final DeferredBlock<Block> ROTTEN_PIE = BLOCKS.register("rotten_pie",
             () -> new RottenPie(BlockBehaviour.Properties.of().randomTicks().strength(0.5F).sound(SoundType.WOOL)));
+    public static final DeferredBlock<Block> ROTTEN_PIE_CAGE = BLOCKS.register("rotten_pie_cage",
+            () -> new RottenPieCage(BlockBehaviour.Properties.of().randomTicks().strength(0.5F).sound(SoundType.WOOL)));
     // Торты со свечами
     public static final DeferredBlock<Block> CANDLE_WIZARD_PIE = BLOCKS.register("candle_wizard_pie",
             () -> new CandleWizardPie(Blocks.CANDLE,BlockBehaviour.Properties.ofFullCopy(Blocks.CANDLE_CAKE)));

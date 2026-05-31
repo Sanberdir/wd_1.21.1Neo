@@ -325,6 +325,8 @@ public class ItemsWD {
             () -> new ItemNameBlockItem(BlocksWD.WIZARD_PIE.get(), new Item.Properties()));
     public static final DeferredItem<Item> ROTTEN_PIE = ITEMS.register("rotten_pie",
             () -> new ItemNameBlockItem(BlocksWD.ROTTEN_PIE.get(), new Item.Properties()));
+    public static final DeferredItem<Item> ROTTEN_PIE_CAGE = ITEMS.register("rotten_pie_cage",
+            () -> new ItemNameBlockItem(BlocksWD.ROTTEN_PIE_CAGE.get(), new Item.Properties()));
     public static final DeferredItem<Item> SUGAR_SACK = ITEMS.register("sugar_sack",
             () -> new ItemNameBlockItem(BlocksWD.SUGAR_SACK.get(), new Item.Properties()));
 

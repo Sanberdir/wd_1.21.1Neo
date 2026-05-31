@@ -1,10 +1,8 @@
-package ru.imaginaerum.wd.common.init.entityes.item_projectile_entities.arrows;
+package ru.imaginaerum.wd.common.init.entities.item_projectile_entities.arrows;
 
 import net.minecraft.core.dispenser.DispenseItemBehavior;
 import net.minecraft.core.dispenser.ProjectileDispenseBehavior;
 
-import net.minecraft.world.entity.projectile.AbstractArrow;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.DispenserBlock;
 
 import ru.imaginaerum.wd.common.init.items.ItemsWD;

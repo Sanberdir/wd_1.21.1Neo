@@ -8,8 +8,8 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
-import ru.imaginaerum.wd.common.init.entityes.ModEntities;
-import ru.imaginaerum.wd.common.init.entityes.item_projectile_entities.StarBall;
+import ru.imaginaerum.wd.common.init.entities.ModEntities;
+import ru.imaginaerum.wd.common.init.entities.item_projectile_entities.StarBall;
 import ru.imaginaerum.wd.common.init.items.ItemsWD;
 import ru.imaginaerum.wd.common.init.sounds.CustomSoundEvents;
 

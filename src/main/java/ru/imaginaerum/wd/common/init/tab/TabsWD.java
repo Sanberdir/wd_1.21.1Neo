@@ -61,6 +61,7 @@ public class TabsWD {
                         output.accept(ItemsWD.ROSE_OF_GHOSTY_TEARS);
                         output.accept(ItemsWD.ROSE_OF_THE_MURDERER);
                         output.accept(ItemsWD.MEADOW_GOLDEN_FLOWER);
+                        output.accept(ItemsWD.SPATIAL_ORCHID);
                         output.accept(ItemsWD.JAR);
                         output.accept(ItemsWD.POISON_BERRY_JAM);
                         output.accept(ItemsWD.CHARMING_JAM);
@@ -80,7 +81,6 @@ public class TabsWD {
                         output.accept(ItemsWD.ICE_WAFFLES);
                         output.accept(ItemsWD.CHARMING_WAFFLES);
                         output.accept(ItemsWD.POISON_WAFFLES);
-                        output.accept(ItemsWD.SPATIAL_ORCHID);
                         output.accept(ItemsWD.THE_PILLAGERS_CHEST);
                         output.accept(ItemsWD.GOLDEN_CHEST_KING_PILLAGER);
                         output.accept(ItemsWD.THE_PILLAGERS_KEY);
@@ -146,6 +146,7 @@ public class TabsWD {
                         output.accept(ItemsWD.DUNGEON_MASTER_CHEESE);
                         output.accept(ItemsWD.WIZARD_PIE);
                         output.accept(ItemsWD.ROTTEN_PIE);
+                        output.accept(ItemsWD.ROTTEN_PIE_CAGE);
                         output.accept(ItemsWD.SUGAR_SACK);
                         output.accept(ItemsWD.DRAGOLIT_BLOCK);
                         output.accept(ItemsWD.DRAGOLIT_GRID);

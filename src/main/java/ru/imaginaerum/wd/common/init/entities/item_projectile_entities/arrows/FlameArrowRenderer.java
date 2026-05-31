@@ -1,4 +1,4 @@
-package ru.imaginaerum.wd.common.init.entityes.item_projectile_entities.arrows;
+package ru.imaginaerum.wd.common.init.entities.item_projectile_entities.arrows;
 
 import net.minecraft.client.renderer.entity.ArrowRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
