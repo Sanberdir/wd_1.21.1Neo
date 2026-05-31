@@ -61,19 +61,19 @@ public class ItemsWD {
 
     public static final DeferredItem<Item> POISON_BERRY_JAM = ITEMS.register("poison_berry_jam",
             () -> new Jam(BlocksWD.POISON_BERRY_JAM.get(), new Item.Properties().food(new FoodProperties.Builder()
-                    .nutrition(13).saturationModifier(0.3f)
+                    .nutrition(13).saturationModifier(0.3f).alwaysEdible()
                     .effect(new MobEffectInstance(MobEffects.POISON, 180, 0), 1F)
                     .effect(new MobEffectInstance(MobEffects.HEALTH_BOOST, 3300, 4), 0.95F)
                     .build())));
     public static final DeferredItem<Item> FREEZE_JAM = ITEMS.register("freeze_jam",
             () -> new Jam(BlocksWD.FREEZE_JAM.get(), new Item.Properties()
-                    .food(new FoodProperties.Builder().nutrition(10).saturationModifier(0.3f)
+                    .food(new FoodProperties.Builder().nutrition(10).saturationModifier(0.3f).alwaysEdible()
                             .effect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 100, 0), 0.9F)
                             .effect(new MobEffectInstance(EffectsWD.FREEZE, 2200, 0), 1F)
                             .build())));
     public static final DeferredItem<Item> CHARMING_JAM = ITEMS.register("charming_jam",
             () -> new Jam(BlocksWD.CHARMING_JAM.get(), new Item.Properties()
-                    .food(new FoodProperties.Builder().nutrition(10).saturationModifier(0.3f)
+                    .food(new FoodProperties.Builder().nutrition(10).saturationModifier(0.3f).alwaysEdible()
                             .effect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200, 1), 0.2F)
                             .effect(new MobEffectInstance(MobEffects.DIG_SPEED, 1200, 0), 0.4F)
                             .effect(new MobEffectInstance(MobEffects.BLINDNESS, 120, 0), 0.6F)
@@ -81,33 +81,33 @@ public class ItemsWD {
                             .build())));
     public static final DeferredItem<Item> SWEET_JAM = ITEMS.register("sweet_jam",
             () -> new Jam(BlocksWD.SWEET_JAM.get(), new Item.Properties()
-                    .food(new FoodProperties.Builder().nutrition(9).saturationModifier(0.6f)
+                    .food(new FoodProperties.Builder().nutrition(9).saturationModifier(0.6f).alwaysEdible()
                             .build())));
     public static final DeferredItem<Item> APPLE_JAM = ITEMS.register("apple_jam",
             () -> new Jam(BlocksWD.APPLE_JAM.get(), new Item.Properties()
-                    .food(new FoodProperties.Builder().nutrition(9).saturationModifier(0.6f)
+                    .food(new FoodProperties.Builder().nutrition(9).saturationModifier(0.6f).alwaysEdible()
                             .build())));
     public static final DeferredItem<Item> JAM_TONIC = ITEMS.register("jam_tonic",
             () -> new Jam(BlocksWD.JAM_TONIC.get(), new Item.Properties()
-                    .food(new FoodProperties.Builder().nutrition(9).saturationModifier(0.7f)
+                    .food(new FoodProperties.Builder().nutrition(9).saturationModifier(0.7f).alwaysEdible()
                             .effect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 2000, 10), 1F)
                             .effect(new MobEffectInstance(MobEffects.DOLPHINS_GRACE, 4800, 4), 1F)
                             .effect(new MobEffectInstance(MobEffects.DIG_SPEED, 5000, 8), 1F)
                             .build())));
     public static final DeferredItem<Item> JAM_INVISIBILITY = ITEMS.register("jam_invisibility",
             () -> new Jam(BlocksWD.JAM_INVISIBILITY.get(), new Item.Properties()
-                    .food(new FoodProperties.Builder().nutrition(12).saturationModifier(0.55f)
+                    .food(new FoodProperties.Builder().nutrition(12).saturationModifier(0.55f).alwaysEdible()
                             .effect(new MobEffectInstance(MobEffects.INVISIBILITY, 4800, 0), 1F)
                             .build())));
     public static final DeferredItem<Item> LEVITAN_JAM = ITEMS.register("levitan_jam",
             () -> new Jam(BlocksWD.LEVITAN_JAM.get(), new Item.Properties()
-                    .food(new FoodProperties.Builder().nutrition(15).saturationModifier(0.4f)
+                    .food(new FoodProperties.Builder().nutrition(15).saturationModifier(0.4f).alwaysEdible()
                             .effect(new MobEffectInstance(MobEffects.LEVITATION, 4, 100), 1F)
                             .effect(new MobEffectInstance(MobEffects.SLOW_FALLING, 200, 10), 1F)
                             .build())));
     public static final DeferredItem<Item> GLOWING_JAM = ITEMS.register("glowing_jam",
             () -> new Jam(BlocksWD.GLOWING_JAM.get(), new Item.Properties()
-                    .food(new FoodProperties.Builder().nutrition(15).saturationModifier(0.4f)
+                    .food(new FoodProperties.Builder().nutrition(15).saturationModifier(0.4f).alwaysEdible()
                             .effect(new MobEffectInstance(MobEffects.GLOWING, 220, 0), 1F)
                             .build())));
     public static final DeferredItem<Item> SUGAR_REFINED = ITEMS.register("sugar_refined",
