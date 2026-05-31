@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "id": "wd:sweet_roll"
+    },
+    "title": {
+      "translate": "wd.advancements.adventures.sweet_roll.title",
+      "color": "#fbf17e",
+      "italic": true
+    },
+    "description": {
+      "translate": "wd.advancements.adventures.sweet_roll.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "parent": "wd:sweet_advance/droping_love",
+  "criteria": {
+    "cheese": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "wd:sweet_roll"
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 500
+  },
+  "sends_telemetry_event": false
+}

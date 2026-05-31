@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "id": "wd:a_drop_of_love"
+    },
+    "title": {
+      "translate": "wd.advancements.adventures.a_drop_of_love.title",
+      "color": "#e67efb",
+      "italic": true
+    },
+    "description": {
+      "translate": "wd.advancements.adventures.a_drop_of_love.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "wd:sweet_advance/magic_adventures",
+  "criteria": {
+    "cheese": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "wd:a_drop_of_love"
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 500
+  },
+  "sends_telemetry_event": false
+}

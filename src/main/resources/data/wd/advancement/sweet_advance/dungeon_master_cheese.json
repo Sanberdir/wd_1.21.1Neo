@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "id": "wd:dungeon_master_cheese"
+    },
+    "title": {
+      "translate": "wd.advancements.adventures.dungeon_master_cheese.title",
+      "color": "#f1f538",
+      "italic": true
+    },
+    "description": {
+      "translate": "wd.advancements.adventures.dungeon_master_cheese.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "parent": "wd:sweet_advance/magic_adventures",
+  "criteria": {
+    "cheese": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "wd:dungeon_master_cheese"
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 500
+  },
+  "sends_telemetry_event": false
+}

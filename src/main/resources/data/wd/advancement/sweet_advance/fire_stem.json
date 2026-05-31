@@ -1,0 +1,33 @@
+{
+  "display": {
+    "icon": {
+      "id": "wd:fire_stem"
+    },
+    "title": {
+      "translate": "wd.advancements.adventures.fire_stem.title",
+      "color": "#ff830f",
+      "bold": true,
+      "italic": true
+    },
+    "description": {
+      "translate": "wd.advancements.adventures.fire_stem.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "parent": "wd:sweet_advance/magic_adventures",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:enter_block",
+      "conditions": {
+        "block": "wd:fire_stem"
+      }
+    }
+  },
+  "rewards": {
+    "experience": 500
+  },
+  "sends_telemetry_event": false
+}

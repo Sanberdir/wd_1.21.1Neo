@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "id": "wd:golden_chest_king_pillager"
+    },
+    "title": {
+      "translate": "wd.advancements.adventures.golden_chest_king_pillager.title",
+      "color": "#f2ff42",
+      "italic": true
+    },
+    "description": {
+      "translate": "wd.advancements.adventures.golden_chest_king_pillager.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "wd:sweet_advance/magic_adventures",
+  "criteria": {
+    "cheese": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "wd:golden_chest_king_pillager"
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 500
+  },
+  "sends_telemetry_event": false
+}

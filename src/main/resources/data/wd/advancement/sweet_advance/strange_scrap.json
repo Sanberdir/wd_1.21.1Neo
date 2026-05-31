@@ -1,0 +1,33 @@
+{
+  "display": {
+    "icon": {
+      "id": "wd:strange_scrap"
+    },
+    "title": {
+      "translate": "wd.advancements.adventures.strange_scrap.title",
+      "color": "#9f75ff",
+      "italic": true
+    },
+    "description": {
+      "translate": "wd.advancements.adventures.strange_scrap.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "wd:sweet_advance/magic_adventures",
+  "criteria": {
+    "cheese": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "wd:strange_scrap"
+          }
+        ]
+      }
+    }
+  },
+  "sends_telemetry_event": false
+}

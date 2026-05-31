@@ -1,0 +1,33 @@
+{
+  "display": {
+    "icon": {
+      "id": "wd:spatial_orchid"
+    },
+    "title": {
+      "translate": "wd.advancements.adventures.spatial_orchid.title",
+      "color": "#e8bfe5",
+      "bold": true,
+      "italic": true
+    },
+    "description": {
+      "translate": "wd.advancements.adventures.spatial_orchid.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "parent": "wd:sweet_advance/magic_adventures",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:enter_block",
+      "conditions": {
+        "block": "wd:spatial_orchid"
+      }
+    }
+  },
+  "rewards": {
+    "experience": 500
+  },
+  "sends_telemetry_event": false
+}

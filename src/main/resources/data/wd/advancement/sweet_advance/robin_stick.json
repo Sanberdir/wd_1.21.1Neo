@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "id": "wd:robin_stick"
+    },
+    "title": {
+      "translate": "wd.advancements.adventures.robin_stick.title",
+      "color": "#e67efb",
+      "italic": true
+    },
+    "description": {
+      "translate": "wd.advancements.adventures.robin_stick.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "wd:sweet_advance/strange_scrap",
+  "criteria": {
+    "cheese": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "wd:robin_stick"
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 500
+  },
+  "sends_telemetry_event": false
+}

@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "id": "wd:healing_dew"
+    },
+    "title": {
+      "translate": "wd.advancements.adventures.healing_dew.title",
+      "color": "#f2ff42",
+      "italic": true
+    },
+    "description": {
+      "translate": "wd.advancements.adventures.healing_dew.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "parent": "wd:sweet_advance/droping_love",
+  "criteria": {
+    "cheese": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "wd:healing_dew"
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 500
+  },
+  "sends_telemetry_event": false
+}

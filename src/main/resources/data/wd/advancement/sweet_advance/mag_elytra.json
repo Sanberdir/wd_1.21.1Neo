@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "id": "wd:mag_elytra"
+    },
+    "title": {
+      "translate": "wd.advancements.adventures.mag_elytra.title",
+      "color": "#7cfefc",
+      "italic": true
+    },
+    "description": {
+      "translate": "wd.advancements.adventures.mag_elytra.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "wd:sweet_advance/strange_scrap",
+  "criteria": {
+    "cheese": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "wd:mag_elytra"
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 500
+  },
+  "sends_telemetry_event": false
+}
