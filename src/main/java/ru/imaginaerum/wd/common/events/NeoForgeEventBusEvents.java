@@ -2,10 +2,17 @@ package ru.imaginaerum.wd.common.events;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.item.crafting.SingleRecipeInput;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
+import net.neoforged.neoforge.event.entity.living.LivingDropsEvent;
 import net.neoforged.neoforge.event.tick.LevelTickEvent;
 import net.neoforged.neoforge.event.tick.ServerTickEvent;
 import ru.imaginaerum.wd.WD;
@@ -18,7 +25,7 @@ import ru.imaginaerum.wd.common.init.blocks.custom.registry_blocks_plaints.Magic
 import ru.imaginaerum.wd.common.init.blocks.custom.registry_blocks_plaints.PepperRegistry;
 
 @EventBusSubscriber(modid = WD.MOD_ID, bus = EventBusSubscriber.Bus.GAME)
-public class ForgeEventBusEvents {
+public class NeoForgeEventBusEvents {
 
     private static long lastDayTime = -1;
     private static int tickCounter = 0;
@@ -36,7 +43,34 @@ public class ForgeEventBusEvents {
         }
         lastDayTime = timeOfDay;
     }
+    @SubscribeEvent
+    public static void onLivingDropsFlameArrow(LivingDropsEvent event) {
+        LivingEntity entity = event.getEntity();
 
+        if (!entity.getPersistentData().getBoolean("FlameArrowKill")) return;
+        entity.getPersistentData().remove("FlameArrowKill");
+
+        for (ItemEntity itemEntity : event.getDrops()) {
+            ItemStack stack = itemEntity.getItem();
+            ItemStack smelted = getSmeltedResult(entity.level(), stack);
+            if (!smelted.isEmpty()) {
+                smelted.setCount(stack.getCount());
+                itemEntity.setItem(smelted);
+            }
+        }
+    }
+
+    private static ItemStack getSmeltedResult(Level level, ItemStack input) {
+        if (level instanceof ServerLevel serverLevel) {
+            var recipeManager = serverLevel.getRecipeManager();
+            var container = new SingleRecipeInput(input);
+            return recipeManager
+                    .getRecipeFor(RecipeType.SMELTING, container, serverLevel)
+                    .map(r -> r.value().assemble(container, serverLevel.registryAccess()))
+                    .orElse(ItemStack.EMPTY);
+        }
+        return ItemStack.EMPTY;
+    }
     @SubscribeEvent
     public static void tickMoistSoil(ServerTickEvent.Post event) {
         tickCounter++;

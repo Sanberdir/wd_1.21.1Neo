@@ -153,6 +153,8 @@ public class TabsWD {
                         output.accept(ItemsWD.STRANGE_CHIP);
                         output.accept(ItemsWD.A_BLOCK_OF_SPARKLING_POLLEN);
                         output.accept(ItemsWD.IRON_WATERING_CAN);
+                        output.accept(ItemsWD.MAGIC_COMPOST);
+                        output.accept(ItemsWD.ECHOTRON);
                         output.accept(ItemsWD.MAGIC_SOIL);
                         output.accept(ItemsWD.MAGIC_SOIL_FARMLAND);
                         output.accept(ItemsWD.MAGIC_SOIL_GRASS);

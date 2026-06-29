@@ -185,6 +185,13 @@ public class BlocksWD {
             () -> new MagicSoilFarmland(BlockBehaviour.Properties.ofFullCopy(Blocks.FARMLAND)));
     public static final DeferredBlock<Block> MAGIC_SOIL_GRASS = BLOCKS.register("magic_soil_grass",
             () -> new MagicSoilGrass(BlockBehaviour.Properties.ofFullCopy(Blocks.FARMLAND)));
+    public static final DeferredBlock<Block> MAGIC_COMPOST = BLOCKS.register("magic_compost",
+            () -> new MagicCompost(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.GRASS).instrument(NoteBlockInstrument.BASS).strength(0.5F)
+                    .sound(SoundType.CROP)));
+    public static final DeferredBlock<Block> ECHOTRON = BLOCKS.register("echotron",
+            () -> new EchotronBlock(BlockBehaviour.Properties.of().sound(SoundType.STONE)
+                    .strength(4f,20f).noOcclusion()));
     public static final DeferredBlock<Block> BRIGHT_PEPPER_SEEDS = BLOCKS.register("bright_pepper_seeds",
             () -> new BrightPepperSeeds(BlockBehaviour.Properties.of().mapColor(MapColor.GRASS).instrument(NoteBlockInstrument.BASS).instabreak()
                     .sound(SoundType.CROP).randomTicks().noCollission().noOcclusion()));
@@ -268,6 +275,8 @@ public class BlocksWD {
             () -> new ModWallHangingSignBlock(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.WOOD).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(1.0F)
                     .dropsLike(APPLE_HANGING_SIGN.get()), ModWoodType.APPLE_WOOD));
+
+
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);

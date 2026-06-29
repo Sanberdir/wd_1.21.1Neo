@@ -18,28 +18,56 @@ import ru.imaginaerum.wd.common.init.blocks.custom.RottenPieCage;
 import java.util.EnumSet;
 
 public class ZombieEatPieGoal extends MoveToBlockGoal {
-    private final Zombie zombie;
 
+    private static final int SEARCH_COOLDOWN_MIN = 80;
+    private static final int SEARCH_COOLDOWN_RAND = 40;
+    private static final int BREAK_THRESHOLD = 320;
+    private static final int SEARCH_RANGE = 16;
+    private static final double REACH_DIST_SQ = 2.25D; // 1.5 блока
+
+    private final Zombie zombie;
+    private int searchCooldown = 0;
     private int eatCooldown = 0;
     private int breakProgress = 0;
-    private static final int BREAK_THRESHOLD = 320;
 
-    public ZombieEatPieGoal(Zombie zombie, double speed, int searchRange) {
-        super(zombie, speed, searchRange, 6);
+    public ZombieEatPieGoal(Zombie zombie, double speed) {
+        super(zombie, speed, SEARCH_RANGE, 4);
         this.zombie = zombie;
         this.setFlags(EnumSet.of(Flag.MOVE));
     }
 
+    // ─────────────────────────────────────────────────────────────────
+    // canUse — вызывается каждый тик, должен быть максимально дёшев
+    // ─────────────────────────────────────────────────────────────────
     @Override
     public boolean canUse() {
+        // Раннее отсечение без дорогих операций
         if (!zombie.level().getGameRules().getBoolean(GameRules.RULE_MOBGRIEFING)) {
             return false;
         }
 
-        // bypass parent's randomized delay and force immediate search
-        return this.findNearestBlock();
+        // Поиск только раз в ~4–6 секунд
+        if (searchCooldown > 0) {
+            searchCooldown--;
+            return false;
+        }
+
+        searchCooldown = SEARCH_COOLDOWN_MIN + zombie.level().random.nextInt(SEARCH_COOLDOWN_RAND);
+        return this.findNearestBlock(); // дорогой вызов — но редкий
     }
 
+    @Override
+    public boolean canContinueToUse() {
+        if (eatCooldown > 0) return true; // продолжаем паузу после еды/слома
+
+        BlockState state = zombie.level().getBlockState(this.blockPos);
+        return state.getBlock() instanceof RottenPie
+                || state.getBlock() instanceof RottenPieCage;
+    }
+
+    // ─────────────────────────────────────────────────────────────────
+    // tick
+    // ─────────────────────────────────────────────────────────────────
     @Override
     public void tick() {
         super.tick();
@@ -49,85 +77,88 @@ public class ZombieEatPieGoal extends MoveToBlockGoal {
             return;
         }
 
+        // Проверяем расстояние только по XZ — зомби может стоять на торте
         BlockPos pos = this.blockPos;
-        Level level = zombie.level();
-
-        // расстояние только по X/Z, чтобы зомби мог стоять на торте
         double dx = zombie.getX() - (pos.getX() + 0.5);
         double dz = zombie.getZ() - (pos.getZ() + 0.5);
-        double distanceSqXZ = dx * dx + dz * dz;
+        if (dx * dx + dz * dz > REACH_DIST_SQ) return;
 
-        if (!this.isReachedTarget() && distanceSqXZ >= 2.0D) {
-            return;
-        }
-
+        Level level = zombie.level();
         BlockState state = level.getBlockState(pos);
 
-        // --- Ломаем клетку постепенно ---
         if (state.getBlock() instanceof RottenPieCage) {
-            breakProgress++;
-
-            if (breakProgress % 10 == 0) {
-                level.playSound(null, pos, SoundEvents.ZOMBIE_ATTACK_WOODEN_DOOR, SoundSource.HOSTILE,
-                        0.5F, 0.8F + level.random.nextFloat() * 0.2F);
-            }
-
-            if (breakProgress >= BREAK_THRESHOLD) {
-                // ставим обычный пирог на месте клетки
-                level.setBlock(pos, BlocksWD.ROTTEN_PIE.get().defaultBlockState().setValue(RottenPie.STAGE, 0), 3);
-                level.playSound(null, pos, SoundEvents.ZOMBIE_BREAK_WOODEN_DOOR, SoundSource.HOSTILE,
-                        1.0F, 0.9F + level.random.nextFloat() * 0.2F);
-
-                zombie.getNavigation().stop();
-                eatCooldown = 25; // небольшая пауза
-                breakProgress = 0;
-
-                return; // следующий тик зомби увидит пирог и съест
-            }
-
-            return; // продолжаем ломать клетку
-        }
-
-        // --- Поедаем пирог ---
-        if (state.getBlock() instanceof RottenPie) {
-            int stage = state.getValue(RottenPie.STAGE);
-            if (stage < 3) {
-                level.setBlock(pos, state.setValue(RottenPie.STAGE, stage + 1), 3);
-            } else {
-                level.removeBlock(pos, false);
-            }
-
-            level.playSound(null, pos, SoundEvents.GENERIC_EAT, SoundSource.HOSTILE,
-                    0.7F, 0.9F + level.random.nextFloat() * 0.2F);
-
-            if (level.random.nextFloat() < 0.7F) {
-                zombie.addEffect(new MobEffectInstance(MobEffects.POISON, 200, 0));
-            }
-
-            zombie.getNavigation().stop();
-            eatCooldown = 60;
+            handleCage(level, pos, state);
+        } else if (state.getBlock() instanceof RottenPie) {
+            handlePie(level, pos, state);
         }
     }
 
+    // ─────────────────────────────────────────────────────────────────
+    // Логика клетки
+    // ─────────────────────────────────────────────────────────────────
+    private void handleCage(Level level, BlockPos pos, BlockState state) {
+        breakProgress++;
+
+        // Звук раз в 10 тиков — не каждый
+        if (breakProgress % 10 == 0) {
+            level.playSound(null, pos,
+                    SoundEvents.ZOMBIE_ATTACK_WOODEN_DOOR, SoundSource.HOSTILE,
+                    0.5F, 0.8F + level.random.nextFloat() * 0.2F);
+        }
+
+        if (breakProgress >= BREAK_THRESHOLD) {
+            level.setBlock(pos,
+                    BlocksWD.ROTTEN_PIE.get().defaultBlockState()
+                            .setValue(RottenPie.STAGE, 0), 3);
+            level.playSound(null, pos,
+                    SoundEvents.ZOMBIE_BREAK_WOODEN_DOOR, SoundSource.HOSTILE,
+                    1.0F, 0.9F + level.random.nextFloat() * 0.2F);
+
+            zombie.getNavigation().stop();
+            breakProgress = 0;
+            eatCooldown = 25;
+        }
+    }
+
+    // ─────────────────────────────────────────────────────────────────
+    // Логика поедания
+    // ─────────────────────────────────────────────────────────────────
+    private void handlePie(Level level, BlockPos pos, BlockState state) {
+        int stage = state.getValue(RottenPie.STAGE);
+
+        if (stage < 3) {
+            level.setBlock(pos, state.setValue(RottenPie.STAGE, stage + 1), 3);
+        } else {
+            level.removeBlock(pos, false);
+        }
+
+        level.playSound(null, pos,
+                SoundEvents.GENERIC_EAT, SoundSource.HOSTILE,
+                0.7F, 0.9F + level.random.nextFloat() * 0.2F);
+
+        if (level.random.nextFloat() < 0.7F) {
+            zombie.addEffect(new MobEffectInstance(MobEffects.POISON, 200, 0));
+        }
+
+        zombie.getNavigation().stop();
+        eatCooldown = 60;
+    }
+
+    // ─────────────────────────────────────────────────────────────────
+    // Валидация цели
+    // ─────────────────────────────────────────────────────────────────
     @Override
     protected boolean isValidTarget(LevelReader levelReader, BlockPos blockPos) {
         BlockState state = levelReader.getBlockState(blockPos);
 
-        if (!(state.getBlock() instanceof RottenPie || state.getBlock() instanceof RottenPieCage)) {
+        if (!(state.getBlock() instanceof RottenPie
+                || state.getBlock() instanceof RottenPieCage)) {
             return false;
         }
 
         int zombieY = this.zombie.blockPosition().getY();
         int targetY = blockPos.getY();
 
-        // блок должен быть не выше, чем на 1 блок от позиции зомби
-        if (targetY > zombieY + 1) {
-            return false;
-        }
-
-        // (по желанию) можешь ещё добавить проверку "не слишком низко", например:
-        // if (targetY < zombieY - 1) return false;
-
-        return true;
+        return targetY <= zombieY + 1 && targetY >= zombieY - 1;
     }
 }

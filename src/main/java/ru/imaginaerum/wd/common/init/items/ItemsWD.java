@@ -459,4 +459,9 @@ public class ItemsWD {
     public static final DeferredItem<Item> APPLE_CHEST_BOAT = ITEMS.register("apple_chest_boat",
             () -> new ModBoatItem(true, ModBoatEntity.Type.APPLE, new Item.Properties()));
 
+    public static final DeferredItem<Item> MAGIC_COMPOST = ITEMS.register("magic_compost",
+            () -> new ItemNameBlockItem(BlocksWD.MAGIC_COMPOST.get(), new Item.Properties()));
+    public static final DeferredItem<Item> ECHOTRON = ITEMS.register("echotron",
+            () -> new ItemNameBlockItem(BlocksWD.ECHOTRON.get(), new Item.Properties()));
+
 }

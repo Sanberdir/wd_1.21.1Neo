@@ -5,17 +5,18 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.item.PrimedTnt;
 import net.minecraft.world.entity.projectile.AbstractArrow;
+import net.minecraft.world.entity.vehicle.MinecartTNT;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.BaseFireBlock;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.CampfireBlock;
-import net.minecraft.world.level.block.CandleBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 
+import ru.imaginaerum.wd.common.init.blocks.custom.CandleWizardPie;
 import ru.imaginaerum.wd.common.init.entities.ModEntities;
 import ru.imaginaerum.wd.common.init.items.ItemsWD;
 
@@ -76,8 +77,31 @@ public class FlameArrow extends AbstractArrow {
         if (this.level().isClientSide) return;
 
         BlockPos pos = result.getBlockPos();
+        BlockPos front = pos.relative(result.getDirection());
         BlockState state = this.level().getBlockState(pos);
+        if (this.level().isEmptyBlock(front)) {
+            if (this.level() instanceof net.minecraft.server.level.ServerLevel serverLevel) {
+                // Пробуем зажечь портал по обеим осям
+                var portalX = new net.minecraft.world.level.portal.PortalShape(
+                        serverLevel, front, net.minecraft.core.Direction.Axis.X);
+                if (portalX.isValid()) {
+                    portalX.createPortalBlocks();
+                    return;
+                }
+                var portalZ = new net.minecraft.world.level.portal.PortalShape(
+                        serverLevel, front, net.minecraft.core.Direction.Axis.Z);
+                if (portalZ.isValid()) {
+                    portalZ.createPortalBlocks();
+                    return;
+                }
+            }
 
+            // Обычный огонь если портал не создался
+            BlockState fireState = BaseFireBlock.getState(this.level(), front);
+            if (fireState.canSurvive(this.level(), front)) {
+                this.level().setBlock(front, fireState, 11);
+            }
+        }
         // Костёр
         if (state.is(Blocks.CAMPFIRE) && !state.getValue(CampfireBlock.LIT)) {
             this.level().setBlock(pos, state.setValue(CampfireBlock.LIT, true), 11);
@@ -87,7 +111,46 @@ public class FlameArrow extends AbstractArrow {
             this.level().setBlock(pos, state.setValue(CampfireBlock.LIT, true), 11);
             return;
         }
+        if (state.is(Blocks.TNT)) {
+            this.discard();
 
+            // Удаляем блок TNT
+            this.level().removeBlock(pos, false);
+
+            // Создаем зажженный TNT
+            PrimedTnt primedTnt = new PrimedTnt(
+                    this.level(),
+                    pos.getX() + 0.5D,
+                    pos.getY(),
+                    pos.getZ() + 0.5D,
+                    this.getOwner() instanceof LivingEntity living ? living : null
+            );
+
+            // Мгновенный взрыв
+            primedTnt.setFuse(0);
+
+            this.level().addFreshEntity(primedTnt);
+
+            return;
+        }
+        if (state.getBlock() instanceof CandleCakeBlock) {
+            if (!state.getValue(BlockStateProperties.LIT)) {
+                this.level().setBlock(pos,
+                        state.setValue(BlockStateProperties.LIT, true),
+                        11
+                );
+            }
+            return;
+        }
+        if (state.getBlock() instanceof CandleWizardPie) {
+            if (!state.getValue(BlockStateProperties.LIT)) {
+                this.level().setBlock(pos,
+                        state.setValue(BlockStateProperties.LIT, true),
+                        11
+                );
+            }
+            return;
+        }
         // Свечи
         if (state.getBlock() instanceof CandleBlock) {
             if (!state.getValue(CandleBlock.LIT)) {
@@ -96,8 +159,6 @@ public class FlameArrow extends AbstractArrow {
             return;
         }
 
-        // Огонь — используем BaseFireBlock.getState() как в старом коде!
-        BlockPos front = pos.relative(result.getDirection());
 
         if (this.level().isEmptyBlock(front)) {
             BlockState fire = BaseFireBlock.getState(this.level(), front); // ← вот исправление
@@ -109,12 +170,36 @@ public class FlameArrow extends AbstractArrow {
 
     @Override
     protected void onHitEntity(EntityHitResult result) {
-        super.onHitEntity(result);
+        Entity target = result.getEntity();
 
-        Entity entity = result.getEntity();
+        // 🔥 Ставим флаг ДО нанесения урона
+        if (target instanceof LivingEntity livingTarget) {
+            livingTarget.getPersistentData().putBoolean("FlameArrowKill", true);
+        }
 
-        if (entity instanceof LivingEntity livingEntity) {
-            livingEntity.setRemainingFireTicks(200);
+        super.onHitEntity(result); // урон наносится здесь
+
+        // TNT вагонетка
+        if (target instanceof MinecartTNT tntCart) {
+            if (!this.level().isClientSide) {
+                double x = tntCart.getX();
+                double y = tntCart.getY();
+                double z = tntCart.getZ();
+                this.discard();
+                tntCart.discard();
+                this.level().explode(
+                        null,  // null — урон получают все включая стрелявшего
+                        x, y, z,
+                        4.0F,
+                        Level.ExplosionInteraction.TNT
+                );
+            }
+            return;
+        }
+
+        // 🔥 Поджигаем после удара
+        if (target instanceof LivingEntity livingTarget) {
+            livingTarget.setRemainingFireTicks(200);
         }
     }
 }

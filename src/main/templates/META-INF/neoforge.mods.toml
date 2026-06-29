@@ -20,6 +20,7 @@ modId = "${mod_id}" #mandatory
 version = "${mod_version}" #mandatory
 # A display name for the mod
 displayName = "${mod_name}" #mandatory
+logoFile = "wizardry_delight.png"
 # A URL to query for updates for this mod. See the JSON update specification https://docs.neoforge.net/docs/misc/updatechecker/
 #updateJSONURL="https://change.me.example.invalid/updates.json" #optional
 # A URL for the "homepage" for this mod, displayed in the mod UI
@@ -32,7 +33,10 @@ displayName = "${mod_name}" #mandatory
 authors = "${mod_authors}" #optional
 
 # The description text for the mod (multi line!) (#mandatory)
-description = '''${mod_description}'''
+description = '''The addon will add a touch of magic and allow the player to enter the role of a magician obsessed with cooking - a kind of Radagast,
+but only living in the kitchen in a log cabin, not on an old withered tree, and with a frying pan in his hands instead of a magic staff.
+We don't like monotony, so we expanded the fauna in the overworld and in the nether, slightly increased the importance of robber outposts
+in the development of the player.'''
 
 # The [[mixins]] block allows you to declare your mixin config to FML so that it gets loaded.
 [[mixins]]
@@ -71,7 +75,6 @@ type = "required"
 versionRange = "${minecraft_version_range}"
 ordering = "NONE"
 side = "BOTH"
-
 # Features are specific properties of the game environment, that you may want to declare you require. This example declares
 # that your mod requires GL version 3.2 or higher. Other features will be added. They are side aware so declaring this won't
 # stop your mod loading on the server for example.
