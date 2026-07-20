@@ -2,11 +2,17 @@ package ru.imaginaerum.wd.common.init.entities.item_projectile_entities.arrows;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ambient.Bat;
+import net.minecraft.world.entity.animal.Chicken;
 import net.minecraft.world.entity.item.PrimedTnt;
+import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.projectile.AbstractArrow;
+import net.minecraft.world.entity.projectile.FireworkRocketEntity;
 import net.minecraft.world.entity.vehicle.MinecartTNT;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -178,7 +184,74 @@ public class FlameArrow extends AbstractArrow {
         }
 
         super.onHitEntity(result); // урон наносится здесь
+// Крипер — как от огнива
+        if (target instanceof Creeper creeper) {
+            if (!this.level().isClientSide) {
+                creeper.ignite();
+            }
+            return;
+        }
+        if (target instanceof Chicken chicken) {
+            if (!this.level().isClientSide) {
+                if (this.random.nextInt(500) == 0) { // 1 шанс из 500
+                    this.level().explode(
+                            null,
+                            chicken.getX(),
+                            chicken.getY(),
+                            chicken.getZ(),
+                            1.0F,
+                            Level.ExplosionInteraction.NONE
+                    );
+                    chicken.discard(); // при таком взрыве курица всё равно погибнет
+                    return;
+                }
+            }
+        }
+        if (target instanceof Bat bat) {
+            if (!this.level().isClientSide) {
+                if (this.random.nextInt(500) == 0) {
 
+                    // Создаём взрыв напрямую через Java объекты
+                    net.minecraft.world.item.component.FireworkExplosion explosion =
+                            new net.minecraft.world.item.component.FireworkExplosion(
+                                    net.minecraft.world.item.component.FireworkExplosion.Shape.LARGE_BALL, // Большой шар
+                                    net.minecraft.core.component.DataComponents.FIREWORKS != null
+                                            ? it.unimi.dsi.fastutil.ints.IntList.of(0x00AA00)  // Зелёный
+                                            : it.unimi.dsi.fastutil.ints.IntArrayList.of(),
+                                    it.unimi.dsi.fastutil.ints.IntArrayList.of(0x005500),   // Затухание тёмно-зелёный
+                                    true,   // trail (искры)
+                                    true   // flicker
+                            );
+
+                    net.minecraft.world.item.component.Fireworks fireworks =
+                            new net.minecraft.world.item.component.Fireworks(
+                                    0, // flight duration
+                                    java.util.List.of(explosion)
+                            );
+
+                    ItemStack fireworkStack = new ItemStack(net.minecraft.world.item.Items.FIREWORK_ROCKET);
+                    fireworkStack.set(net.minecraft.core.component.DataComponents.FIREWORKS, fireworks);
+
+                    FireworkRocketEntity firework = new FireworkRocketEntity(
+                            this.level(),
+                            bat.getX(),
+                            bat.getY(),
+                            bat.getZ(),
+                            fireworkStack
+                    );
+
+                    CompoundTag entityTag = new CompoundTag();
+                    firework.addAdditionalSaveData(entityTag);
+                    entityTag.putInt("Life", 0);
+                    entityTag.putInt("LifeTime", 1);
+                    firework.readAdditionalSaveData(entityTag);
+
+                    this.level().addFreshEntity(firework);
+                    bat.discard();
+                    return;
+                }
+            }
+        }
         // TNT вагонетка
         if (target instanceof MinecartTNT tntCart) {
             if (!this.level().isClientSide) {

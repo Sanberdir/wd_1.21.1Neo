@@ -27,7 +27,7 @@
             "Name": "wd:apple_leaves",
             "Properties": {
               "distance": "7",
-              "persistent": "true",
+              "persistent": "false",
               "waterlogged": "false"
             }
           },
@@ -38,7 +38,7 @@
             "Name": "wd:apple_leaves_stages",
             "Properties": {
               "distance": "7",
-              "persistent": "true",
+              "persistent": "false",
               "stage": "0",
               "waterlogged": "false"
             }

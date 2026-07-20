@@ -15,15 +15,14 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.ArmorMaterial;
-import net.minecraft.world.item.ElytraItem;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.DispenserBlock;
+import net.neoforged.neoforge.common.ItemAbilities;
+import net.neoforged.neoforge.common.ItemAbility;
 
-public class ModElytra extends ElytraItem {
+public class ModElytra extends ElytraItem implements Equipable {
 
     protected final ArmorItem.Type type;
     // material теперь Holder<ArmorMaterial>, как в ArmorItem
@@ -42,7 +41,11 @@ public class ModElytra extends ElytraItem {
         this.type = type;
         DispenserBlock.registerBehavior(this, DISPENSE_ITEM_BEHAVIOR);
     }
-
+    @Override
+    public boolean canPerformAction(ItemStack stack, ItemAbility ability) {
+        // Разрешаем все действия экипировки для слота груди
+        return true;
+    }
     @Override
     public ItemAttributeModifiers getDefaultAttributeModifiers() {
         return buildModifiers(this.material, this.type);
@@ -114,17 +117,26 @@ public class ModElytra extends ElytraItem {
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack itemstack = player.getItemInHand(hand);
-        EquipmentSlot slot = EquipmentSlot.CHEST; // всегда CHEST для элитры
+        EquipmentSlot slot = EquipmentSlot.CHEST;
         ItemStack equipped = player.getItemBySlot(slot);
+
         if (equipped.isEmpty()) {
+            // Если слот пуст - просто надеваем
             player.setItemSlot(slot, itemstack.copy());
             if (!level.isClientSide()) {
                 player.awardStat(Stats.ITEM_USED.get(this));
             }
             itemstack.setCount(0);
             return InteractionResultHolder.sidedSuccess(itemstack, level.isClientSide());
+        } else {
+            // Если в слоте что-то есть - меняем местами
+            player.setItemSlot(slot, itemstack.copy());
+            player.setItemInHand(hand, equipped);
+            if (!level.isClientSide()) {
+                player.awardStat(Stats.ITEM_USED.get(this));
+            }
+            return InteractionResultHolder.sidedSuccess(itemstack, level.isClientSide());
         }
-        return InteractionResultHolder.fail(itemstack);
     }
 
     @Override

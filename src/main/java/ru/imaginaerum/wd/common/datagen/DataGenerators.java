@@ -8,7 +8,6 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import ru.imaginaerum.wd.WD;
 
-
 @EventBusSubscriber(modid = WD.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
 public class DataGenerators {
     @SubscribeEvent
@@ -16,7 +15,20 @@ public class DataGenerators {
         DataGenerator generator = event.getGenerator();
         PackOutput packOutput = generator.getPackOutput();
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
+        var lookupProvider = event.getLookupProvider();
 
-        generator.addProvider(event.includeServer(), new ModWorldGenProvider(packOutput, event.getLookupProvider()));
+        generator.addProvider(event.includeServer(), new ModWorldGenProvider(packOutput, lookupProvider));
+
+        // если у вас ещё нет своего BlockTagsProvider — создаём минимальный,
+        // он нужен только чтобы дать ItemTagsProvider ссылку на contentsGetter()
+        var blockTagsProvider = generator.addProvider(
+                event.includeServer(),
+                new ModBlockTagsProvider(packOutput, lookupProvider, existingFileHelper)
+        );
+
+        generator.addProvider(
+                event.includeServer(),
+                new ModItemTagsProvider(packOutput, lookupProvider, blockTagsProvider.contentsGetter(), existingFileHelper)
+        );
     }
 }

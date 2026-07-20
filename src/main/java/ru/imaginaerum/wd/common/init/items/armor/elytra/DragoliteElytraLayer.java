@@ -51,19 +51,22 @@ public class DragoliteElytraLayer extends RenderLayer<AbstractClientPlayer, Play
         poseStack.translate(0.0F, 0.0F, 0.125F);
         this.getParentModel().copyPropertiesTo(this.elytraModel);
         this.elytraModel.setupAnim(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
-        // ItemRenderer.getArmorFoilBuffer убран в 1.21 — используем getBuffer напрямую,
-        // foil-эффект теперь обрабатывается через RenderType автоматически
-        VertexConsumer main = buffer.getBuffer(
-                chestItem.hasFoil()
-                        ? RenderType.armorEntityGlint()
-                        : RenderType.armorCutoutNoCull(TEXTURE_ELYTRA)
-        );
-        // renderToBuffer: 4 float -> int ARGB (0xFFFFFFFF = белый непрозрачный)
+
+        // всегда рисуем базовую текстуру
+        VertexConsumer main = buffer.getBuffer(RenderType.armorCutoutNoCull(TEXTURE_ELYTRA));
         this.elytraModel.renderToBuffer(poseStack, main, packedLight,
                 OverlayTexture.NO_OVERLAY, 0xFFFFFFFF);
+
+        // если предмет зачарован — дополнительно рисуем поверх слой переливания
+        if (chestItem.hasFoil()) {
+            VertexConsumer glint = buffer.getBuffer(RenderType.armorEntityGlint());
+            this.elytraModel.renderToBuffer(poseStack, glint, packedLight,
+                    OverlayTexture.NO_OVERLAY, 0xFFFFFFFF);
+        }
+
         poseStack.popPose();
 
-        // Glow-слой
+        // Glow-слой (не зависит от foil, оставляем как есть)
         poseStack.pushPose();
         poseStack.translate(0.0F, 0.0F, 0.130F);
         this.getParentModel().copyPropertiesTo(this.elytraModel);

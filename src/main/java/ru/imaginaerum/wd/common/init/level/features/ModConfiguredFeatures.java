@@ -39,8 +39,8 @@ public class ModConfiguredFeatures {
                 new FancyTrunkPlacer(3, 11, 0),
                 new WeightedStateProvider(
                         SimpleWeightedRandomList.<BlockState>builder()
-                                .add(BlocksWD.APPLE_LEAVES.get().defaultBlockState().setValue(BlockStateProperties.PERSISTENT, true), 3)
-                                .add(BlocksWD.APPLE_LEAVES_STAGES.get().defaultBlockState().setValue(BlockStateProperties.PERSISTENT, true), 1)
+                                .add(BlocksWD.APPLE_LEAVES.get().defaultBlockState().setValue(BlockStateProperties.PERSISTENT, false), 3)
+                                .add(BlocksWD.APPLE_LEAVES_STAGES.get().defaultBlockState().setValue(BlockStateProperties.PERSISTENT, false), 1)
                                 .build()
                 ),
                 new FancyFoliagePlacer(ConstantInt.of(2), ConstantInt.of(4), 4),
